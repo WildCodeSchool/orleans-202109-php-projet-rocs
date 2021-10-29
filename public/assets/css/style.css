@@ -1,0 +1,36 @@
+:root{
+    --primary-color : #56B658;
+    --secondary-color : #F8E644;
+    --dark : #001500;
+    --light : #FDFFFC;
+    --grey : #E8E8E8;
+    --h3-color : #929292;
+    --p-size : 24px;
+    --h3-size : 36px;
+    --h2-size : 48px;
+    --h1-size : 60px;
+}
+
+body{
+    background-color: var(--white);
+}
+
+h1,h2,h3,h4{
+    color: var(--primary-color);
+    font-family: 'Montserrat', sans-serif;
+    size : var(--h1-size);
+}
+
+h2 {
+    size: var(--h2-size);
+}
+
+h3{
+    color : var(--h3-color);
+    size: var(--h3-size);
+}
+
+p{
+    font-family: 'Roboto', sans-serif;
+    size : var(--p-size);
+}
