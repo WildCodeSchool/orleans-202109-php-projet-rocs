@@ -2,10 +2,15 @@
 
 namespace App\Controller;
 
+use App\Model\ActivityManager;
+
 class ActivityController extends AbstractController
 {
     public function show(int $id): string
     {
-        return $this->twig->render('Activity/activity.html.twig');
+        $activityManager = new ActivityManager();
+        $activity = $activityManager->selectOneById($id);
+
+        return $this->twig->render('Activity/activity.html.twig', ['activity' => $activity]);
     }
 }
