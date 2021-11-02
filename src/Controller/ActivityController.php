@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\ActivityManager;
+use App\Model\TrainerManager;
 
 class ActivityController extends AbstractController
 {
@@ -11,6 +12,8 @@ class ActivityController extends AbstractController
         $activityManager = new ActivityManager();
         $activity = $activityManager->selectOneById($id);
 
-        return $this->twig->render('Activity/activity.html.twig', ['activity' => $activity]);
+        $trainerManager = new TrainerManager();
+        $trainer = $trainerManager->selectOneById($activity['id']);
+        return $this->twig->render('Activity/activity.html.twig', ['activity' => $activity, 'trainer' => $trainer]);
     }
 }
