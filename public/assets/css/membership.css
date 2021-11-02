@@ -1,0 +1,16 @@
+.title-membership {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.title-modality {
+    margin-top: 40px;
+}
+
+.title-subscription {
+    margin-top: 40px;
+}
+
+.table-subscription td {
+    color: var(--primary-color);
+}

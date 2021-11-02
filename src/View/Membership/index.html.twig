@@ -1,49 +1,73 @@
 {% extends 'layout.html.twig' %}
+{% block stylesheet %}
+	<link rel="stylesheet" href="/assets/css/membership.css">
+{% endblock %}
 
 {% block content %}
-	<h1>Cotisations 2021 / 2022</h1>
-	<section class="table-membership">
-		<table class="table table-bordered border table-borderless">
-			<thead class="table-light">
-				<tr>
-					<th scope="col" colspan="1">Adhésion par foyer</th>
-					<th scope="col" colspan="4">Type de licence</th>
-				</tr>
-				<tr>
-					<th scope="row"></th>
-					<th scope="row">Loisir
-						<br>plus de 15ans</th>
-					<th scope="row" colspan="1">Compétition
-						<br>moins de 13 ans</th>
-					<th scope="row" colspan="1">Compétition
-						<br>plus de 13 ans</th>
-					<th scope="row" colspan="1">Dirigeant et
-						<br>entraîneur</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th scope="row">1er adhérent</th>
-					<td>104,00€</td>
-					<td>93,00€</td>
-					<td>104,00€</td>
-					<td>53,00€</td>
-				</tr>
-				<tr>
-					<th scope="row">2ème adhérent</th>
-					<td>101,00€</td>
-					<td>90,00€</td>
-					<td>101,00€</td>
-					<td></td>
-				</tr>
-				<tr>
-					<th scope="row">3ème adhérent</th>
-					<td>98,00€</td>
-					<td>87,00€</td>
-					<td>98,00€</td>
-					<td></td>
-				</tr>
-			</tbody>
-		</table>
+
+	<section class="container">
+		<h1 class="title-membership">Adhésions</h1>
+		<section class="modality text-center">
+			<h2 class="title-modality">Modalités d'inscription</h2>
+			<p>Possible à partir de 5 ans pour une licence du type loisir et à partir de 6 ans pour une licence du type compétition. Le passage à l’école de patinage est conseillé pour tout enfant débutant.</p>
+			<h3>Première adhésion :</h3>
+			<p>Une photo d’identité, une copie d’une pièce d’identité du futur patineur, un certificat médical spécifiant « Pratique du Roller Skating en Compétition », la fiche de renseignement avec autorisation parentale pour les moins de 18 ans, 3 enveloppes timbrées à votre adresse (convocation de l’Assemblée Générale, etc.,) ainsi que le paiement correspondant. Possibilité d’un essai avant adhésion.</p>
+			<h3>Renouvellement d’adhésion :</h3>
+			<p>Une photo d’identité, un certificat médical spécifiant « Pratique du Roller Skating en Compétition », la fiche de renseignement avec autorisation parentale pour les moins de 18 ans, 1 enveloppe timbrée à votre adresse (convocation de l’Assemblée Générale, etc.,) ainsi que le paiement correspondant.</p>
+			<p>Le renouvellement d’adhésion doit être fait pour le 30 septembre au plus tard.</p>
+			<p>Toute demande ou renouvellement d’adhésion doit transiter via le responsable de la discipline concernée.</p>
+		</section>
+		<section class="table-subscription text-center">
+			<h2 class="title-subscription text-center">Cotisations 2021-2022</h2>
+			<table class="table table-bordered border table-borderless text-center">
+				<thead class="table-light">
+					<tr class="table-dark">
+						<th scope="col" colspan="1">Adhésion par foyer</th>
+						<th scope="col" colspan="4">Type de licence</th>
+					</tr>
+					<tr class="table-light">
+						<th scope="row"></th>
+						<th scope="row">Loisir
+							<br>plus de 15ans</th>
+						<th scope="row" colspan="1">Compétition
+							<br>moins de 13 ans</th>
+						<th scope="row" colspan="1">Compétition
+							<br>plus de 13 ans</th>
+						<th scope="row" colspan="1">Dirigeant et
+							<br>entraîneur</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th class="table-light" scope="row">1er adhérent</th>
+						<td>104,00€</td>
+						<td>93,00€</td>
+						<td>104,00€</td>
+						<td>53,00€</td>
+					</tr>
+					<tr>
+						<th class="table-light" scope="row">2ème adhérent</th>
+						<td>101,00€</td>
+						<td>90,00€</td>
+						<td>101,00€</td>
+						<td></td>
+					</tr>
+					<tr>
+						<th class="table-light" scope="row">3ème adhérent</th>
+						<td>98,00€</td>
+						<td>87,00€</td>
+						<td>98,00€</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Cette cotisation comprend :</h3>
+			<p>La cotisation du club<br>
+				La licence fédérale assurances incluses<br>
+				La cotisation ligue régionale et comité départemental<br></p>
+			<h3>Mode de paiement de la cotisation :</h3>
+			<p>Par chèque bancaire ou postal, libellé à l’ordre du R.O.C.S.<br>
+				Coupon sport , Cheque vacances et Tickets CAF</p>
+		</section>
 	</section>
 {% endblock %}
