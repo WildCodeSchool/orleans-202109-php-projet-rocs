@@ -1,5 +1,49 @@
 {% include "layout.html.twig" %}
 {% block content %}
-<h2> {{ activity.name }} </h2>
-
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h2> {{ activity.name }} </h2>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 place">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Lieu</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                    </svg>
+                    <p class="card-text"> 16 Rue Pierre Loti</p>
+                    <p class="card-text"> 45140 Saint-Jean de la Ruelle</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 schedule">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Date</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-calendar3" viewBox="0 0 16 16">
+                        <path
+                            d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
+                        <path
+                            d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                    </svg>
+                    <p class="card-text"> {{ activity.days }} </p>
+                    <p class="card-text"> {{ activity.schedule }} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 registration">
+            <a href="">Inscription</a>
+        </div>
+    </div>
+</div>
 {% endblock %}
