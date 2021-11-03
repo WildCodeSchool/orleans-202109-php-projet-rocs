@@ -1,0 +1,15 @@
+.container-footer {
+    background: var(--dark);
+    color: var(--light);
+    margin: 0%;
+    width: 100%;
+    border-top: var(--secondary-color) 3px solid;
+}
+
+.bi {
+    fill: var(--light);
+}
+
+.btn-footer {
+    background-color: var(--secondary-color);
+}
