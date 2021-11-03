@@ -13,7 +13,7 @@ class ActivityController extends AbstractController
         $activity = $activityManager->selectOneById($id);
 
         $trainerManager = new TrainerManager();
-        $trainer = $trainerManager->selectOneById($activity['id']);
+        $trainer = $trainerManager->selectOneById($activity['trainer_id']);
         return $this->twig->render('Activity/activity.html.twig', ['activity' => $activity, 'trainer' => $trainer]);
     }
 }

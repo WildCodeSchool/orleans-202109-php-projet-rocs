@@ -31,6 +31,75 @@ CREATE TABLE `item` (
   `title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+
+--
+-- Structure de la table activity
+-- /!\ Need to import trainer table before /!\
+--
+
+CREATE TABLE `activity` (
+  `id`INT AUTO_INCREMENT NOT NULL,
+  `name`VARCHAR(100) NOT NULL,
+  `description` TEXT NOT NULL,
+  `schedule`VARCHAR(155) NOT NULL,
+  `days`VARCHAR(60) NOT NULL,
+    `who`TEXT NOT NULL,
+  `trainer_id` INT,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`trainer_id`) REFERENCES trainer(`id`)
+);
+
+--
+-- Contenu de la table `activity`
+--
+
+INSERT INTO `activity` (
+  `name`,
+  `description`,
+  `schedule`,
+  `days`,
+  `who`,
+  `trainer_id`
+) VALUES (
+  'Roller de Vitesse',
+  "Rouler c'est être libre",
+  '19h à 20h30',
+  'Mardi - Jeudi',
+  "Pour les plus petits pleins d'énergie et les plus grands compétiteurs",
+  '1'
+);
+
+--
+-- Structure de la table trainer
+--
+CREATE TABLE `trainer` (
+  `id` INT AUTO_INCREMENT NOT NULL,
+  `firstname` VARCHAR(155) NOT NULL,
+  `lastname` VARCHAR(155) NOT NULL,
+  `phoneNumber` CHARACTER(10) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `gender`VARCHAR(3),
+  PRIMARY KEY (`id`)
+);
+
+--
+-- Contenu de la table `trainer`
+--
+INSERT INTO `trainer` (
+  `firstname`,
+  `lastname`,
+  `phoneNumber`,
+  `email`,
+  `gender`
+) VALUES (
+  'Nathan',
+  'Chapelle',
+  '0617864520',
+  'entraineur@rocs.com',
+  'Mr'
+);
+
 --
 -- Contenu de la table `item`
 --
