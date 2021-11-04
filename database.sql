@@ -80,6 +80,7 @@ CREATE TABLE `trainer` (
   `phoneNumber` CHARACTER(10) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   `gender`VARCHAR(3),
+  `image` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -91,13 +92,15 @@ INSERT INTO `trainer` (
   `lastname`,
   `phoneNumber`,
   `email`,
-  `gender`
+  `gender`,
+  `image`
 ) VALUES (
   'Nathan',
   'Chapelle',
   '0617864520',
   'entraineur@rocs.com',
-  'Mr'
+  'Mr',
+  'trainer.jpeg'
 );
 
 --
