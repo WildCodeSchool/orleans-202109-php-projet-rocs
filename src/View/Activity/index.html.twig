@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Activités
+{% endblock %}
+{% block stylesheet %}
+	<link rel="stylesheet" href="assets/css/activity.css">
+{% endblock %}
+{% block content %}
+<main class="container">
+	<h1 class="text-center">Nos activités
+	</h1>
+	<div class="card w-75 my-5  d-flex align-self-center">
+		<div class="row g-0">
+			<div class="col-md-8">
+				<div class="card-body">
+					<h2 class="card-title mb-5">Card title</h2>
+					<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+					<a class="btn activity-btn mb-2" href="#">en savoir plus</a>
+				</div>
+			</div>
+			<div class="col-md-4 ">
+				<img src="assets/images/activity.jpg" class="img-fluid rounded-start" alt="...">
+			</div>
+		</div>
+	</div>
+</main 
+{% endblock %}

@@ -1,0 +1,6 @@
+.activity-btn {
+    background-color: var(--secondary-color);
+    border: none;
+    color: var(--dark);
+    float: right;
+}
