@@ -38,4 +38,5 @@ h3 {
 p {
     font-family: 'Roboto', sans-serif;
     font-size: var(--p-size);
+    line-height: 2;
 }
