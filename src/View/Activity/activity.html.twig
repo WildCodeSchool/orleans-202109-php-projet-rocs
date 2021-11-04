@@ -1,4 +1,5 @@
-{% include "layout.html.twig" %}
+{% extends "layout.html.twig" %}
+{% block title %} {{ activity.name }} {% endblock %}
 {% block stylesheet %}
 <link rel="stylesheet" href="assets/css/activity.css">
 {% endblock %}
@@ -64,7 +65,7 @@
     <div class="card col-lg-8 offset-lg-2 mb-4 my-4 h-auto shadow-sm ">
         <div class="row g-0">
             <div class="col-md-4">
-                <img src="assets/images/trainer.jpeg" class="img-fluid rounded" alt="Un beau entraineur">
+                <img src="assets/images/{{ trainer.image }} " class="img-fluid rounded" alt="Un beau entraineur">
             </div>
             <div class="col-md-8 d-flex align-items-center text-center text-md-start ">
                 <div class="card-body justify-content-end ps-5">
