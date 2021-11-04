@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap');
-
 :root {
     --primary-color: #56B658;
     --secondary-color: #F8E644;
@@ -8,8 +7,8 @@
     --light: #FDFFFC;
     --grey: #E8E8E8;
     --h3-color: #929292;
-    --p-size: 24px;
-    --h3-size: 36px;
+    --p-size: 20px;
+    --h3-size: 30px;
     --h2-size: 48px;
     --h1-size: 60px;
 }
