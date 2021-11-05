@@ -13,7 +13,7 @@ body {
     background-color: var(--primary-color);
 }
 
-svg {
+.activityLogo {
     fill: var(--primary-color);
     width: 20px;
     height: 20px;
