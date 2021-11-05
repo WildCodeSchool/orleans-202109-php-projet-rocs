@@ -1,0 +1,24 @@
+@import url('style.css');
+body {
+    background-color: var(--light);
+}
+
+.registration {
+    background-color: var(--secondary-color);
+    border: none;
+    color: var(--dark);
+}
+
+.registration:hover {
+    background-color: var(--primary-color);
+}
+
+.activityLogo {
+    fill: var(--primary-color);
+    width: 20px;
+    height: 20px;
+}
+
+.email {
+    font-size: calc(var(--p-size) - 4px);
+}

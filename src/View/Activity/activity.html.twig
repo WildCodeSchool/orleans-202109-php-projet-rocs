@@ -1,0 +1,99 @@
+{% extends "layout.html.twig" %}
+{% block title %} {{ activity.name }} {% endblock %}
+{% block stylesheet %}
+<link rel="stylesheet" href="assets/css/activity.css">
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-center"> {{ activity.name|capitalize }} </h2>
+        </div>
+    </div>
+    <div class="row text-center">
+        <h3 class="mt-5"> Qu'est-ce que c'est ?</h3>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book mb-3 mt-2 activityLogo"
+            viewBox="0 0 16 16 ">
+            <path
+                d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
+        </svg>
+        <p class="mt-4"> {{ activity.description }} </p>
+    </div>
+    <div class="row text-center">
+        <div class="col-lg-4 my-4 py-0 h-50 py-0 place">
+            <div class="card shadow-sm">
+                <div class="card-body py-4">
+                    <h3 class="card-title mb-3">Pour qui ?</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-info-circle-fill activityLogo" viewBox="0 0 16 16">
+                        <path
+                            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+                    </svg>
+                    <p class="card-text my-3"> {{ activity.who }} </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 my-4 py-0 place">
+            <div class="card shadow-sm">
+                <div class="card-body py-4">
+                    <h3 class="card-title mb-3">Lieu</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-geo-alt-fill mb-3 mt-2 activityLogo" viewBox="0 0 16 16">
+                        <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                    </svg>
+                    <p class="card-text my-3"> 16 Rue Pierre Loti</p>
+                    <p class="card-text mt-3"> 45140 Saint-Jean de la Ruelle</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 my-4 py-0 schedule">
+            <div class="card shadow-sm">
+                <div class="card-body py-4">
+                    <h3 class="card-title mb-3">Horaires</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-calendar-fill mb-3 mt-2 activityLogo" viewBox="0 0 16 16">
+                        <path
+                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z" />
+                    </svg>
+                    <p class="card-text my-3"> {{ activity.days }} </p>
+                    <p class="card-text mt-3"> {{ activity.schedule }} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card col-lg-8 offset-lg-2 mb-4 my-4 h-auto shadow-sm ">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="uploads/trainers/{{ activity.trainer_image }} " class="img-fluid rounded" alt="Un beau entraineur">
+            </div>
+            <div class="col-md-8 d-flex align-items-center text-center text-md-start ">
+                <div class="card-body justify-content-end ps-5">
+                    <h3 class="trainer w-auto card-title mb-3">Entraineur</h3>
+                    <h4 class="class-title mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-person-circle me-2 activityLogo" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg> {{ activity.gender ~ ' ' ~ activity.lastname ~ ' ' ~ activity.firstname }} </h4>
+                    <p class="phoneNumber mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-telephone-fill me-2 activityLogo" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                        </svg> {{ activity.phoneNumber }} </p>
+                    <p class="email mb-2 align-self-center"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                            height="16" fill="currentColor" class="bi bi-envelope-fill me-2 activityLogo" viewBox="0 0 16 16">
+                            <path
+                                d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                        </svg>{{ activity.email }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center ">
+        <div class="col-12 my-2">
+            <a class="btn btn-primary p-2 px-4 registration" href="adhesion" role="button">Inscription</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
