@@ -1,0 +1,26 @@
+.container-footer {
+    background: var(--dark);
+    color: var(--light);
+    margin: 0%;
+    border-top: var(--secondary-color) 3px solid;
+}
+
+.bi {
+    fill: var(--light);
+    width: 2rem;
+    height: 2rem;
+}
+
+.card-footer {
+    color: var(--light);
+}
+
+iframe {
+    width: 400rem;
+    height: 20rem;
+    border-radius: 10px;
+}
+
+img.logo {
+    height: 10rem;
+}
