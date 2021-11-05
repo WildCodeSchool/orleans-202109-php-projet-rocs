@@ -7,3 +7,7 @@
     border: none;
     color: var(--dark);
 }
+
+.document:hover {
+    background-color: var(--primary-color);
+}
