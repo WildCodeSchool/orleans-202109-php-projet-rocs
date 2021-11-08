@@ -22,22 +22,3 @@ body {
 .email {
     font-size: calc(var(--p-size) - 4px);
 }
-
-
-.activity-btn {
-    background-color: var(--secondary-color);
-    border: none;
-    color: var(--dark);
-    float: right;
-}
-
-
-
-.activity-btn:hover {
-    background-color: var(--primary-color);
-}
-
-.card-activity:nth-child(even){
-    flex-direction: row-reverse;
-  }
-
