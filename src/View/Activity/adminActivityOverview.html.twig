@@ -1,0 +1,37 @@
+{% extends "layout.html.twig" %}
+{% block stylesheet %}
+<link rel="stylesheet" href="assets/css/adminActivities/adminActivities.css">
+{% endblock %}
+{% block content %}
+<!--TODO Extend adminLayout-->
+<div class="container">
+    <div class="row">
+        <h1 class="text-center my-5">Administration des activitées</h1>
+    </div>
+    <div class="row">
+        <table class="table table-hover my-5">
+            <thead class="bg-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Activité</th>
+                    <th scope="col">Entraineur</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for activity in activities %}
+                <tr>
+                    <th scope="row" class="line"> {{ loop.index }} </th>
+                    <td> {{ activity.id }} </td>
+                    <td> {{ activity.name }} </td>
+                    <td> {{ activity.trainer }} </td>
+                    <td>Modifier</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+{% endblock %}
