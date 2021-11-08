@@ -104,6 +104,18 @@ INSERT INTO `trainer` (
 );
 
 --
+-- Structure de la table office
+--
+CREATE TABLE `office` (
+  `id` INT AUTO_INCREMENT NOT NULL,
+  `firstname` VARCHAR(60) NOT NULL,
+  `lastname` VARCHAR(60) NOT NULL,
+  `image` VARCHAR(255) NOT NULL,
+  `role` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+--
 -- Contenu de la table `item`
 --
 
