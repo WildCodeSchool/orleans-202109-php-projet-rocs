@@ -1,0 +1,134 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Adhésions{% endblock %}
+{% block stylesheet %}
+<link rel="stylesheet" href="/assets/css/membership.css">
+{% endblock %}
+
+{% block content %}
+
+<main class="container">
+	<h1 class="title-membership text-center lh-lg mt-5">Adhésions</h1>
+	<section class="modality text-justify">
+		<h2 class="title-modality text-center lh-lg mt-5">Modalités d'inscription</h2>
+		<p class="lh-lg">Possible à partir de 5 ans pour une licence du type loisir et à partir de 6 ans pour une
+			licence du type compétition. Le passage à l’école de patinage est conseillé pour tout enfant débutant.</p>
+		<h3 class="mt-5">Première adhésion :</h3>
+		<p class="lh-lg">Une photo d’identité, une copie d’une pièce d’identité du futur patineur, un certificat médical
+			spécifiant « Pratique du Roller Skating en Compétition », la fiche de renseignement avec autorisation
+			parentale pour les moins de 18 ans, 3 enveloppes timbrées à votre adresse (convocation de l’Assemblée
+			Générale, etc.,) ainsi que le paiement correspondant. Possibilité d’un essai avant adhésion.</p>
+		<h3 class="mt-5">Renouvellement d’adhésion :</h3>
+		<p class="lh-lg">Une photo d’identité, un certificat médical spécifiant « Pratique du Roller Skating en
+			Compétition », la fiche de renseignement avec autorisation parentale pour les moins de 18 ans, 1 enveloppe
+			timbrée à votre adresse (convocation de l’Assemblée Générale, etc.,) ainsi que le paiement correspondant.
+		</p>
+		<p class="lh-lg">Le renouvellement d’adhésion doit être fait pour le 30 septembre au plus tard.</p>
+		<p class="lh-lg">Toute demande ou renouvellement d’adhésion doit transiter via le responsable de la discipline
+			concernée.</p>
+	</section>
+	<section class="table-subscription">
+		<h2 class="title-subscription text-center lh-lg mt-5 mb-4">Cotisations 2021-2022</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered border table-borderless text-center">
+				<thead class="table-light">
+					<tr class="table-dark">
+						<th scope="col" colspan="1">Adhésion par foyer</th>
+						<th scope="col" colspan="4">Type de licence</th>
+					</tr>
+					<tr class="table-light">
+						<th scope="row"></th>
+						<th scope="row">Loisir
+							<br>plus de 15ans
+						</th>
+						<th scope="row" colspan="1">Compétition
+							<br>moins de 13 ans
+						</th>
+						<th scope="row" colspan="1">Compétition
+							<br>plus de 13 ans
+						</th>
+						<th scope="row" colspan="1">Dirigeant et
+							<br>entraîneur
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th class="table-light" scope="row">1er adhérent</th>
+						<td>104,00€</td>
+						<td>93,00€</td>
+						<td>104,00€</td>
+						<td>53,00€</td>
+					</tr>
+					<tr>
+						<th class="table-light" scope="row">2ème adhérent</th>
+						<td>101,00€</td>
+						<td>90,00€</td>
+						<td>101,00€</td>
+						<td></td>
+					</tr>
+					<tr>
+						<th class="table-light" scope="row">3ème adhérent</th>
+						<td>98,00€</td>
+						<td>87,00€</td>
+						<td>98,00€</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<h3 class="mt-5">Cette cotisation comprend :</h3>
+		<p class="lh-lg">La cotisation du club<br>
+			La licence fédérale assurances incluses<br>
+			La cotisation ligue régionale et comité départemental<br></p>
+		<h3 class="mt-5">Mode de paiement de la cotisation :</h3>
+		<p class="lh-lg">Par chèque bancaire ou postal, libellé à l’ordre du R.O.C.S.<br>
+			Coupon sport , Cheque vacances et Tickets CAF</p>
+	</section>
+	<section class="filesubscription">
+		<h2 class="title-filesubscription text-center lh-lg mt-5 mb-4 ">Adhésion au club</h2>
+		<div class="row">
+			<div class="col-sm-6 ">
+				<div class="card bg-light mb-3 mb-5">
+					<div class="card-body">
+						<h3 class="card-title">Formulaire d'inscription</h3>
+						<p class="card-text">Document Microsoft Excel [301.6 KB]</p>
+						<a href="/assets/files/formulaire-inscription.xlsx"
+							class="btn btn-primary p-2 px-4 document">Télécharger</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="card bg-light mb-3 mb-5">
+					<div class="card-body">
+						<h3 class="card-title">Attestation médicale</h3>
+						<p class="card-text">Document Microsoft Word [32.1 KB]</p>
+						<a href="/assets/files/formulaire-medical.docx"
+							class="btn btn-primary p-2 px-4 document">Télécharger</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="card bg-light mb-3 mb-5">
+					<div class="card-body">
+						<h3 class="card-title">Questionnaire de santé</h3>
+						<p class="card-text">Document Adobe Acrobat [670.4 KB]</p>
+						<a href="/assets/files/questionnaire-medical.pdf"
+							class="btn btn-primary p-2 px-4 document">Télécharger</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="card bg-light mb-3 mb-5">
+					<div class="card-body">
+						<h3 class="card-title">Guide assurance</h3>
+						<p class="card-text">Document Adobe Acrobat [1.0 MB]</p>
+						<a href="/assets/files/assurance.pdf" class="btn btn-primary p-2 px-4 document">Télécharger</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+{% endblock %}

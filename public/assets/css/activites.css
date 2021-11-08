@@ -1,0 +1,15 @@
+
+.activity-btn {
+    background-color: var(--secondary-color);
+    border: none;
+    color: var(--dark);
+    float: right;
+}
+
+.activity-btn:hover {
+    background-color: var(--primary-color);
+}
+
+.card-activities:nth-child(even) .row{
+    flex-direction: row-reverse;
+}

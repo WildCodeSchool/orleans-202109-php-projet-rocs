@@ -1,18 +1,24 @@
+@import url('style.css');
+body {
+    background-color: var(--light);
+}
 
-.activity-btn {
+.registration {
     background-color: var(--secondary-color);
     border: none;
     color: var(--dark);
-    float: right;
 }
 
-
-
-.activity-btn:hover {
+.registration:hover {
     background-color: var(--primary-color);
 }
 
-.card-activity:nth-child(even){
-    flex-direction: row-reverse;
-  }
+.activityLogo {
+    fill: var(--primary-color);
+    width: 20px;
+    height: 20px;
+}
 
+.email {
+    font-size: calc(var(--p-size) - 4px);
+}

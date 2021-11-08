@@ -1,0 +1,13 @@
+.table-subscription td {
+    color: var(--primary-color);
+}
+
+.document {
+    background-color: var(--secondary-color);
+    border: none;
+    color: var(--dark);
+}
+
+.document:hover {
+    background-color: var(--primary-color);
+}
