@@ -18,3 +18,8 @@ a.link-rocs:hover {
 .navbar-toggler {
     background-color: var(--secondary-color);
 }
+
+.logo-navbar {
+    width: 5rem;
+    height: 5rem;
+}
