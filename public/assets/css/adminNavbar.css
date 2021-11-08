@@ -1,0 +1,23 @@
+.adminNavbar{
+    background: var(--dark);
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+.adminLink{
+    color: var(--light);
+}
+
+.adminLink:hover{
+    color: var(--secondary-color);
+}
+.toggler{
+    fill: var(--dark);
+}
+nav img {
+    width: 55px;
+    height: 55px;
+}
+
+.togglerButton{
+    background-color: var(--secondary-color);
+}
