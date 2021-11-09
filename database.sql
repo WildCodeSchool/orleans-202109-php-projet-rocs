@@ -38,39 +38,28 @@ CREATE TABLE `item` (
 -- /!\ Need to import trainer table before /!\
 --
 
+
+DROP TABLE IF EXISTS `activity`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `activity` (
-  `id`INT AUTO_INCREMENT NOT NULL,
-  `name`VARCHAR(100) NOT NULL,
-  `description` TEXT NOT NULL,
-  `schedule`VARCHAR(155) NOT NULL,
-  `days`VARCHAR(60) NOT NULL,
-    `who`TEXT NOT NULL,
-  `trainer_id` INT,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `description` text NOT NULL,
+  `schedule` varchar(155) NOT NULL,
+  `days` varchar(60) NOT NULL,
+  `who` text NOT NULL,
+  `trainer_id` int DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`trainer_id`) REFERENCES trainer(`id`)
-);
+  KEY `trainer_id` (`trainer_id`),
+  CONSTRAINT `activity_ibfk_1` FOREIGN KEY (`trainer_id`) REFERENCES `trainer` (`id`)
+) 
 
 --
--- Contenu de la table `activity`
---
+insert into activity(id,name,description,schedule,days,who,trainer_id,image) values('2','Course à pied','La course à pied est, avec la marche, l'un des deux modes de locomotion bipèdes de l'être humain. Caractérisée par une phase de suspension durant laquelle aucun des deux pieds ne touche le sol, elle permet un déplacement plus économe en énergie que la marche pour des vitesses allant d'environ 6 km/h à plus de 40 km/h.','19h à 20h30','Mardi - Jeudi','Pour les plus petits pleins d'énergie et les plus grands compétiteurs','1','run.jpg');
+insert into activity(id,name,description,schedule,days,who,trainer_id,image) values('3','Artistique','Pratique  éducative,  de  proximité  et  en  groupe  d'activités  physiques  diversifiées  elle  sert  d'accompagnement  pour  entretenir,  améliorer,  dynamiser  la  santé,  le  bien-être  et  la  qualité  perçue de la vie  Méthode douce encore peu connue, elle allie  tonification, étirements et relâchement musculaire pour une  sensation immédiate de bien-être. ','10h - 13h','Lundi - Mardi','Martine FERREIRA',null,'art.jpg');
 
-INSERT INTO `activity` (
-  `name`,
-  `description`,
-  `schedule`,
-  `days`,
-  `who`,
-  `trainer_id`
-) VALUES (
-  'Roller de Vitesse',
-  "Rouler c'est être libre",
-  '19h à 20h30',
-  'Mardi - Jeudi',
-  "Pour les plus petits pleins d'énergie et les plus grands compétiteurs",
-  '1'
-);
-
---
 -- Structure de la table trainer
 --
 CREATE TABLE `trainer` (

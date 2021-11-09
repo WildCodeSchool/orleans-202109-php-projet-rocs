@@ -1,0 +1,8 @@
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
