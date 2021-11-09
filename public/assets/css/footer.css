@@ -7,20 +7,25 @@
 
 .bi {
     fill: var(--light);
-    width: 2rem;
-    height: 2rem;
+    width: 1.7rem;
+    height: 1.7rem;
+}
+
+.bi-geo-alt-fill {
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 .card-footer {
-    color: var(--light);
+    color: var(--h3-color);
 }
 
 iframe {
     width: 400rem;
-    height: 20rem;
+    height: 14rem;
     border-radius: 10px;
 }
 
 img.logo {
-    height: 10rem;
+    height: 14rem;
 }

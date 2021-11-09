@@ -9,7 +9,7 @@
 return [
     '' => ['HomeController', 'index',],
     'adhesion' => ['MembershipController', 'index',],
-    'items' => ['ItemController', 'index',],
+    'activites' => ['ActivityController', 'index',],
     'items/edit' => ['ItemController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
