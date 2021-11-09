@@ -7,6 +7,12 @@ use App\Model\TrainerManager;
 
 class ActivityController extends AbstractController
 {
+    public function index()
+    {
+        $activityManager = new ActivityManager();
+        $activities = $activityManager->selectAll();
+        return $this->twig->render('Activity/index.html.twig', ['activities' => $activities]);
+    }
     public function show(int $id): string
     {
         $activityManager = new ActivityManager();
