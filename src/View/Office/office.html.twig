@@ -11,10 +11,10 @@
     <section class="cards-office text-center">
         <h2 class="title-office mt-5 mb-4">Le bureau</h2>
         <p>Le bureau a été élu lors du conseil d’administration du 8 juillet 2021. Il est composé de 3 membres.</p>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center gap-5">
             {% for office in offices %}
-            <div class="card bg-light mb-3 mb-5" style="width: 18rem;">
-                <img src="uploads/{{ office.image }} " class="img-fluid rounded" alt="président">
+            <div class="card bg-light mb-3 mb-5 p-0" style="width: 18rem;">
+                <img src="uploads/{{ office.image }} " class="img-fluid rounded alt=" président">
                 <div class="card-body">
                     <h3 class="card-text">{{ office.role }}</h3>
                     <p class="card-text">{{ office.firstname }} {{ office.lastname }}</p>
