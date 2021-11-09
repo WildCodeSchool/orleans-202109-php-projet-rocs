@@ -104,16 +104,20 @@ INSERT INTO `trainer` (
 );
 
 --
--- Structure de la table office
+-- Table structure for table `office`
 --
+
+DROP TABLE IF EXISTS `office`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `office` (
-  `id` INT AUTO_INCREMENT NOT NULL,
-  `firstname` VARCHAR(60) NOT NULL,
-  `lastname` VARCHAR(60) NOT NULL,
-  `image` VARCHAR(255) NOT NULL,
-  `role` VARCHAR(50) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT COMMENT 'primary key',
+  `firstname` varchar(60) DEFAULT NULL,
+  `lastname` varchar(60) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `role` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-);
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Contenu de la table `item`
