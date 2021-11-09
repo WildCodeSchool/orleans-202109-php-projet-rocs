@@ -18,8 +18,13 @@ thead{
     background-color: var(--primary-color);
 }
 
+.btnAddActivity:active{
+    background-color: var(--primary-color);
+}
+
 .btnAddActivity:focus{
     background-color: var(--primary-color);
+    box-shadow: none;
 }
 
 .divAddActivity{

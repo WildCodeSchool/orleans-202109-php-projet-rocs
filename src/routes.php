@@ -15,5 +15,5 @@ return [
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
     'activite' => ['ActivityController', 'show', ['id']],
-    'adminActivites' => ['ActivityController', 'adminIndex'],
+    'admin/activites' => ['AdminActivityController', 'index'],
 ];

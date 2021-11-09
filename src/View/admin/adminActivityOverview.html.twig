@@ -1,6 +1,7 @@
-{% extends "layout.html.twig" %}
+{% extends "adminLayout.html.twig" %}
 {% block stylesheet %}
-<link rel="stylesheet" href="assets/css/adminActivities/adminActivities.css">
+{{ parent() }}
+<link rel="stylesheet" href="/assets/css/admin/adminActivities.css">
 {% endblock %}
 {% block content %}
 <!--TODO Extend adminLayout-->
