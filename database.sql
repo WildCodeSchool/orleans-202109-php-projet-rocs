@@ -23,85 +23,63 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `item`
+-- Table structure for table `trainer`
 --
 
-CREATE TABLE `item` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `title` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-
---
--- Structure de la table activity
--- /!\ Need to import trainer table before /!\
---
-
-CREATE TABLE `activity` (
-  `id`INT AUTO_INCREMENT NOT NULL,
-  `name`VARCHAR(100) NOT NULL,
-  `description` TEXT NOT NULL,
-  `schedule`VARCHAR(155) NOT NULL,
-  `days`VARCHAR(60) NOT NULL,
-    `who`TEXT NOT NULL,
-  `trainer_id` INT,
-  PRIMARY KEY (`id`),
-  FOREIGN KEY (`trainer_id`) REFERENCES trainer(`id`)
-);
-
---
--- Contenu de la table `activity`
---
-
-INSERT INTO `activity` (
-  `name`,
-  `description`,
-  `schedule`,
-  `days`,
-  `who`,
-  `trainer_id`
-) VALUES (
-  'Roller de Vitesse',
-  "Rouler c'est être libre",
-  '19h à 20h30',
-  'Mardi - Jeudi',
-  "Pour les plus petits pleins d'énergie et les plus grands compétiteurs",
-  '1'
-);
-
---
--- Structure de la table trainer
---
+DROP TABLE IF EXISTS `trainer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `trainer` (
-  `id` INT AUTO_INCREMENT NOT NULL,
-  `firstname` VARCHAR(155) NOT NULL,
-  `lastname` VARCHAR(155) NOT NULL,
-  `phoneNumber` CHARACTER(10) NOT NULL,
-  `email` VARCHAR(255) NOT NULL,
-  `gender`VARCHAR(3),
-  `image` VARCHAR(255) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(155) NOT NULL,
+  `lastname` varchar(155) NOT NULL,
+  `phoneNumber` char(10) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `gender` varchar(3) DEFAULT NULL,
+  `image` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-);
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Contenu de la table `trainer`
+-- Dumping data for table `trainer`
 --
-INSERT INTO `trainer` (
-  `firstname`,
-  `lastname`,
-  `phoneNumber`,
-  `email`,
-  `gender`,
-  `image`
-) VALUES (
-  'Nathan',
-  'Chapelle',
-  '0617864520',
-  'entraineur@rocs.com',
-  'Mr',
-  'trainer.jpeg'
-);
+
+/*!40000 ALTER TABLE `trainer` DISABLE KEYS */;
+INSERT INTO `trainer` VALUES (1,'Nathan','Chapelle','0617864520','entraineur@rocs.com','Mr','trainer.jpeg');
+/*!40000 ALTER TABLE `trainer` ENABLE KEYS */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+
+--
+-- Table structure for table `activity`
+--
+
+DROP TABLE IF EXISTS `activity`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `activity` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `description` text NOT NULL,
+  `schedule` varchar(155) NOT NULL,
+  `days` varchar(60) NOT NULL,
+  `who` text NOT NULL,
+  `trainer_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `trainer_id` (`trainer_id`),
+  CONSTRAINT `activity_ibfk_1` FOREIGN KEY (`trainer_id`) REFERENCES `trainer` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `activity`
+--
+
+/*!40000 ALTER TABLE `activity` DISABLE KEYS */;
+INSERT INTO `activity` VALUES (2,'Roller de Vitesse','Rouler c\'est être libre','19h à 20h30','Mardi - Jeudi','Pour les plus petits pleins d\'énergie et les plus grands compétiteurs',1);
+/*!40000 ALTER TABLE `activity` ENABLE KEYS */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 --
 -- Contenu de la table `item`
