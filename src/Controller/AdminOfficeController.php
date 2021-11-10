@@ -10,8 +10,6 @@ class AdminOfficeController extends AbstractController
     {
         $officeManager = new OfficeManager();
         $offices = $officeManager->adminSelectAll();
-
         return $this->twig->render('admin/adminOfficeOverview.html.twig', ['offices' => $offices]);
     }
 }
-
