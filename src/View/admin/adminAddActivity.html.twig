@@ -5,5 +5,35 @@
     <div class="row">
         <h1 class="text-center my-5">Créer une Activité</h1>
     </div>
+    <div class="row">
+        <form action="" method="POST" class="mb-5 mt-2">
+            <div class="mb-3 col-6 offset-3">
+                <label for="activity" class="form-label">Activité</label>
+                <input type="text" class="form-control" id="activity" placeholder="Roller Skating">
+            </div>
+            <div class="row">
+                <div class="mb-3 col-3 offset-3">
+                    <label for="schedule" class="form-label">Horraires</label>
+                    <input type="text" name="schedule" id="schedule" class="form-control" placeholder="20h - 22h">
+                </div>
+                <div class="mb-3 col-3 offset-6">
+                    <label for="days" class="form-label">Jours</label>
+                    <input type="text" name="days" id="days" class="form-control" placeholder="Mardi - Jeudi">
+                </div>
+            </div>
+
+            <div class="mb-3 col-6 offset-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea name="description" id="description" class="form-control pb-5"
+                    placeholder="Décrivez l'activité"></textarea>
+            </div>
+            <div class="mb-3 col-6 offset-3">
+                <label for="who" class="form-label">Pour qui ?</label>
+                <textarea name="who" id="who" class="form-control" placeholder="Décrivez la cible"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary offset-5 col-2 mt-2">Envoyer</button>
+        </form>
+    </div>
 </div>
 {% endblock %}
