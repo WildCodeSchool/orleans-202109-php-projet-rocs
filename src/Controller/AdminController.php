@@ -6,7 +6,7 @@ use App\Model\AdminManager;
 
 class AdminController extends AbstractController
 {
-    public function adminConnexion(): string
+    public function adminConnection(): string
     {
         $adminManager = new AdminManager();
         $admins = $adminManager->selectAll();
@@ -31,7 +31,7 @@ class AdminController extends AbstractController
         }
 
         return $this->twig->render(
-            'admin/connexion.html.twig',
+            'admin/connection.html.twig',
             [
                 'admins' => $admins,
                 'errors' => $errors,
