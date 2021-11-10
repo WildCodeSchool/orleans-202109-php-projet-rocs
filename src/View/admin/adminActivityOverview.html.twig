@@ -17,7 +17,7 @@
             <thead class="bg-dark">
                 <tr>
                     <th scope="col">Activité</th>
-                    <th scope="col">Entraîneur</th>
+                    <th scope="col">Entraineur</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -26,13 +26,11 @@
                 {% for activity in activities %}
                 <tr class="align-middle">
                     <td> {{ activity.name }} </td>
-                    <td> 
-                        {% if activity.trainer == null %}Pas d'entraîneur{% else %} {{activity.trainer}} {% endif %}
-                    </td>
-                    <td class="text-center"><a class="btn btn-primary py-1 btnAddActivity" href="#"
-                            role="button">Modifier</a></td>
-                    <td class="text-center"><a class="btn btn-primary py-1 btnAddActivity" href="#"
-                            role="button">Supprimer</a></td>
+                    <td> {{ activity.trainer ?? "Pas d'entraineur" }} </td>
+                    <td class="text-center"><a class="btn btn-primary py-1 btnAddActivity" 
+                        href="#" role="button">Modifier</a></td>
+                    <td class="text-center"><a class="btn btn-primary py-1 btnAddActivity" 
+                        href="#" role="button">Supprimer</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
