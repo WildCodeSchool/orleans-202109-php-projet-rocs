@@ -17,5 +17,5 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     'activite' => ['ActivityController', 'show', ['id']],
     'admin/activites' => ['AdminActivityController', 'index'],
-    'admin/connexion' => ['AdminController', 'adminConnexion']
+    'admin/connection' => ['AdminController', 'adminConnexion']
 ];
