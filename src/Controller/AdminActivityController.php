@@ -10,7 +10,6 @@ class AdminActivityController extends AbstractController
     {
         $activityManager = new ActivityManager();
         $activities = $activityManager->selectAllAdmin();
-
         return $this->twig->render('admin/adminActivityOverview.html.twig', ['activities' => $activities]);
     }
 }

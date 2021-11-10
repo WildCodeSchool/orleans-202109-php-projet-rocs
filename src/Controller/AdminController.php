@@ -10,18 +10,17 @@ class AdminController extends AbstractController
     {
         $adminManager = new AdminManager();
         $admins = $adminManager->selectAll();
-
         $errors = [];
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $data = array_map('trim', $_POST);
             $errors = $this->validate($data);
-
             if (empty($errors)) {
                 foreach ($admins as $admin) {
-                    if (!($admin['password'] === $data['password']) && !($admin['username'] === $data['username'])) {
+                    $password = password_hash($data['password'], PASSWORD_DEFAULT);
+                    if (!($admin['password'] == $password) && !($admin['username'] == $data['username'])) {
                         $errors['notFind'] = 'L\'utilisateur n\'a pas été trouver ou le mot de passe est éroné';
                     } else {
-                        session_start();
                         $_SESSION['username'] = $data['username'];
                         header('Location: /admin/activites');
                     }
@@ -29,7 +28,7 @@ class AdminController extends AbstractController
             }
         }
 
-        return $this->twig->render('admin/connexion.html.twig', ['admins' => $admins]);
+        return $this->twig->render('admin/connexion.html.twig', ['admins' => $admins, 'errors' => $errors]);
     }
 
     private function validate(array $data): array
