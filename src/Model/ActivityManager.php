@@ -25,17 +25,22 @@ class ActivityManager extends AbstractManager
 
     public function addActivity(array $newActivity): void
     {
-        $query = "INSERT INTO activity (`name`,`description`,`schedule`,`days`,`who`,`trainer`) 
-            VALUES (:name,:description,:schedule,:days,:who,:trainer_id)";
-            $statement = $this->pdo->prepare($query);
 
-            $statement->bindValue('name', $newActivity['name'], \PDO::PARAM_STR);
-            $statement->bindValue('description', $newActivity['description'], \PDO::PARAM_STR);
-            $statement->bindValue('schedule', $newActivity['schedule'], \PDO::PARAM_STR);
-            $statement->bindValue('days', $newActivity['days'], \PDO::PARAM_STR);
-            $statement->bindValue('who', $newActivity['who'], \PDO::PARAM_STR);
-            $statement->bindValue('trainer_id', $newActivity['trainer_id'], \PDO::PARAM_INT);
+        $query = "INSERT INTO activity (`name`,`description`,`schedule`,`days`,`who`,`trainer_id`) 
+            VALUES (:activity,:description,:schedule,:days,:who,:trainer)";
+        $statement = $this->pdo->prepare($query);
 
-            $statement->execute();
+        $statement->bindValue('activity', $newActivity['activity'], \PDO::PARAM_STR);
+        $statement->bindValue('description', $newActivity['description'], \PDO::PARAM_STR);
+        $statement->bindValue('schedule', $newActivity['schedule'], \PDO::PARAM_STR);
+        $statement->bindValue('days', $newActivity['days'], \PDO::PARAM_STR);
+        $statement->bindValue('who', $newActivity['who'], \PDO::PARAM_STR);
+        if ($newActivity['trainer'] != "") {
+            $statement->bindValue('trainer', $newActivity['trainer'], \PDO::PARAM_INT);
+        } else {
+            $statement->bindValue('trainer', null);
+        }
+
+        $statement->execute();
     }
 }
