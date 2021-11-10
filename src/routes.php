@@ -19,4 +19,5 @@ return [
     'admin/activites' => ['AdminActivityController', 'index'],
     'admin/connection' => ['AdminController', 'adminConnexion'],
     'admin/deconnection' => ['AdminController', 'adminDeconnection'],
+    'admin/erreur' => ['AdminController', 'erreur'],
 ];

@@ -61,6 +61,11 @@ class AdminController extends AbstractController
         header('Location: /admin/connection');
     }
 
+    public function erreur(): string
+    {
+        return $this->twig->render('admin/adminErreur.html.twig');
+    }
+
     private function validate(array $data): array
     {
         $errors = [];

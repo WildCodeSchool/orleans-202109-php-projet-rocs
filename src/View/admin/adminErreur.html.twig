@@ -1,0 +1,27 @@
+{% extends "adminLayout.html.twig" %}
+{% block stylesheet %}
+{{ parent() }}
+<link rel="stylesheet" href="/assets/css/admin/connection.css">
+{% endblock %}
+{% block content %}
+<div class="container  h-75 text-center d-flex flex-column  justify-content-center">
+    <div>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <h1 class="fs-2 m-0">Vous n'êtes pas connecter</h1>
+                <h2 class="fs-3">
+                    Pour aller sur ce site vous devez vous êtres authentifier ici
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <a href="/admin/connection" class="btn btn-success">Se connecter</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
