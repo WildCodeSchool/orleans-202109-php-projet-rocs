@@ -1,0 +1,43 @@
+{% extends "adminLayout.html.twig" %}
+{% block stylesheet %}
+{{ parent() }}
+<link rel="stylesheet" href="/assets/css/admin/adminOffice.css">
+{% endblock %}
+{% block content %}
+<!--TODO Extend adminLayout-->
+<div class="container">
+    <div class="row">
+        <h1 class="text-center my-5">Administration du bureau</h1>
+    </div>
+    <div class="row justify-content-center">
+        <a class="btn btn-primary btnAddOffice" href="#" role="button">Ajouter du personnel</a>
+    </div>
+    <div class="row">
+        <table class="table table-hover my-5">
+            <thead class="bg-dark">
+                <tr>
+                    <th scope="col">Poste</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prénom</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for office in offices %}
+                <tr class="align-middle">
+                    <td> {{ office.role }} </td>
+                    <td> {{ office.firstname }} </td>
+                    <td> {{ office.lastname }} </td>
+                    <td class="text-center"><a class="btn btn-primary py-1 btnAddOffice" href="#"
+                            role="button">Modifier</a></td>
+                    <td class="text-center"><a class="btn btn-primary py-1 btnAddOffice" href="#"
+                            role="button">Supprimer</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+{% endblock %}
