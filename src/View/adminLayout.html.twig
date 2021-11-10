@@ -7,4 +7,8 @@
 {% include "Include/_adminNavbar.html.twig" %}
 {% endblock %}
 {% block content %}{% endblock %}
-{% block footer %}{% endblock %}
+{% block footer %}
+<div class="col offset-10 mt-5">
+    <a href="/admin/deconnection" class="btn btn-danger">Déconnection</a>
+</div>
+{% endblock %}
