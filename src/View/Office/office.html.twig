@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Association{% endblock %}
+
+{% block content %}
+
+<main class="container">
+    <h1 class="title-association text-center mt-5">Association</h1>
+    <section class="cards-office text-center">
+        <h2 class="title-office mt-5 mb-4">Le bureau</h2>
+        <p>Le bureau a été élu lors du conseil d’administration du 8 juillet 2021. Il est composé de 3 membres.</p>
+        <div class="row justify-content-center gap-5">
+            {% for office in offices %}
+            <div class="col-sm-3">
+                <div class="card bg-light mb-3 mb-5 p-0">
+                    <img src="uploads/{{ office.image }} " class="img-fluid rounded" alt="personnel">
+                    <div class="card-body">
+                        <h3 class="card-text">{{ office.role }}</h3>
+                        <p class="card-text">{{ office.firstname }} {{ office.lastname }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+{% endblock %}

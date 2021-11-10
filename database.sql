@@ -82,6 +82,22 @@ INSERT INTO `activity` VALUES (2,'Roller de Vitesse','Rouler c\'est être libre'
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 --
+-- Table structure for table `office`
+--
+
+DROP TABLE IF EXISTS `office`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `office` (
+  `id` int NOT NULL AUTO_INCREMENT COMMENT 'primary key',
+  `firstname` varchar(60) DEFAULT NULL,
+  `lastname` varchar(60) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `role` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+
+--
 -- Contenu de la table `item`
 --
 
