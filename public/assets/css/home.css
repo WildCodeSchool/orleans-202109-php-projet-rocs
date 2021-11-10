@@ -13,3 +13,19 @@
     color: var(--light);
     font-size: 30px;
 }
+
+.carousel-item {
+    width: 500px;
+    height: 400px;
+}
+
+.activity-btn {
+    background-color: var(--secondary-color);
+    border: none;
+    color: var(--dark);
+    float: right;
+}
+
+.activity-btn:hover {
+    background-color: var(--primary-color);
+}
