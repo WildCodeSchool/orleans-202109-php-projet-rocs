@@ -26,11 +26,13 @@
                 {% for activity in activities %}
                 <tr class="align-middle">
                     <td> {{ activity.name }} </td>
-                    <td> {{ activity.trainer ?? 'Pas d\'entraîneur' }} </td>
-                    <td class="text-center"><a class="btn btn-primary py-1 btnAddActivity" 
-                        href="#" role="button">Modifier</a></td>
-                    <td class="text-center"><a class="btn btn-primary py-1 btnAddActivity" 
-                        href="#" role="button">Supprimer</a></td>
+                    <td> 
+                        {% if activity.trainer == null %}Pas d'entraîneur{% else %} {{activity.trainer}} {% endif %}
+                    </td>
+                    <td class="text-center"><a class="btn btn-primary py-1 btnAddActivity" href="#"
+                            role="button">Modifier</a></td>
+                    <td class="text-center"><a class="btn btn-primary py-1 btnAddActivity" href="#"
+                            role="button">Supprimer</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
