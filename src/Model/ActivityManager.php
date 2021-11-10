@@ -22,4 +22,20 @@ class ActivityManager extends AbstractManager
             . static::TABLE . " AS a LEFT JOIN trainer AS t ON t.id = a.trainer_id";
         return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function addActivity(array $newActivity): void
+    {
+        $query = "INSERT INTO activity (`name`,`description`,`schedule`,`days`,`who`,`trainer`) 
+            VALUES (:name,:description,:schedule,:days,:who,:trainer_id)";
+            $statement = $this->pdo->prepare($query);
+
+            $statement->bindValue('name', $newActivity['name'], \PDO::PARAM_STR);
+            $statement->bindValue('description', $newActivity['description'], \PDO::PARAM_STR);
+            $statement->bindValue('schedule', $newActivity['schedule'], \PDO::PARAM_STR);
+            $statement->bindValue('days', $newActivity['days'], \PDO::PARAM_STR);
+            $statement->bindValue('who', $newActivity['who'], \PDO::PARAM_STR);
+            $statement->bindValue('trainer_id', $newActivity['trainer_id'], \PDO::PARAM_INT);
+
+            $statement->execute();
+    }
 }
