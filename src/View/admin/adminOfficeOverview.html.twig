@@ -17,8 +17,7 @@
             <thead class="bg-dark">
                 <tr>
                     <th scope="col">Poste</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Prénom</th>
+                    <th scope="col">Personnel</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -27,8 +26,7 @@
                 {% for office in offices %}
                 <tr class="align-middle">
                     <td> {{ office.role }} </td>
-                    <td> {{ office.firstname }} </td>
-                    <td> {{ office.lastname }} </td>
+                    <td> {{ office.personnel }} </td>
                     <td class="text-center"><a class="btn btn-primary py-1 btnAddOffice" href="#"
                             role="button">Modifier</a></td>
                     <td class="text-center"><a class="btn btn-primary py-1 btnAddOffice" href="#"
