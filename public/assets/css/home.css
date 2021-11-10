@@ -1,18 +1,15 @@
-.header-rocs{
+.header-rocs {
     background-image: url('../images/ROCS.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 30rem ;
-    
+    height: 30rem;
 }
 
-.h1-header{
-
-    color:var(--secondary-color);
+.h1-header {
+    color: var(--secondary-color);
 }
 
-.h2-header{
-
-    color:var(--light);
+.h2-header {
+    color: var(--light);
     font-size: 30px;
 }
