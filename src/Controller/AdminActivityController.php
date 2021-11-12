@@ -9,7 +9,7 @@ class AdminActivityController extends AbstractController
     public function index(): string
     {
         $activityManager = new ActivityManager();
-        $activities = $activityManager->adminSelectAll();
+        $activities = $activityManager->selectAllWithTrainer();
 
         return $this->twig->render('admin/adminActivityOverview.html.twig', ['activities' => $activities]);
     }
@@ -18,7 +18,7 @@ class AdminActivityController extends AbstractController
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $activityManager = new ActivityManager();
-            $activityManager->adminDelete($_POST['activity_id']);
+            $activityManager->delete((int)$_POST['activity_id']);
             header('Location: /admin/activites');
         }
     }
