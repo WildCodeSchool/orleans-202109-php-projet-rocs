@@ -26,7 +26,7 @@
         <form action="" method="post" class="border border-success my-5 rounded p-5">
             <h1 class="offset-2">Connexion</h1>
             <div class="form-floating mb-3 col-8 offset-2">
-                <input type="text" class="form-control" id="username" name="username" placeholder="username" value=" {{ data.username }} ?? """ >
+                <input type="text" class="form-control" id="username" name="username" placeholder="username" value="{{ data.username }}" >
                 <label for="username">Utilisateur</label>
                 {% if errors.emptyUsername %}
                 <div class="alert alert-danger p-0 mt-2">

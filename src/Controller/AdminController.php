@@ -9,23 +9,21 @@ class AdminController extends AbstractController
     public function adminConnection(): string
     {
         $adminManager = new AdminManager();
-        $admins = $adminManager->selectAll();
         $errors = [];
         $data = [];
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $data = array_map('trim', $_POST);
             $errors = $this->validate($data);
             if (empty($errors)) {
-                foreach ($admins as $admin) {
-                    if (
-                        password_verify($data['password'], $admin['password'])
-                        && $admin['username'] == $data['username']
-                    ) {
-                        $_SESSION['username'] = $data['username'];
-                        header('Location: /admin/activites');
-                    } else {
-                        $errors['notFind'] = 'L\'utilisateur n\'a pas été trouver ou le mot de passe est éroné';
-                    }
+                $admin = $adminManager->selectOneAdmin($data['username']);
+                if (
+                    password_verify($data['password'], $admin['password'])
+                    && $admin['username'] == $data['username']
+                ) {
+                    $_SESSION['username'] = $data['username'];
+                    header('Location: /admin/activites');
+                } else {
+                    $errors['notFind'] = 'L\'utilisateur n\'a pas été trouvé ou le mot de passe est erroné';
                 }
             }
         }
@@ -33,7 +31,6 @@ class AdminController extends AbstractController
         return $this->twig->render(
             'admin/connection.html.twig',
             [
-                'admins' => $admins,
                 'errors' => $errors,
                 'data' => $data
             ]
@@ -42,28 +39,13 @@ class AdminController extends AbstractController
 
     public function adminDeconnection()
     {
-
-        //Desctruction des cookies de session
-        if (ini_get("session.use_cookies")) {
-            $params = session_get_cookie_params();
-            setcookie(
-                session_name(),
-                '',
-                time() - 42000,
-                $params["path"],
-                $params["domain"],
-                $params["secure"],
-                $params["httponly"]
-            );
-        }
-
         session_destroy();
         header('Location: /admin/connection');
     }
 
-    public function erreur(): string
+    public function error(): string
     {
-        return $this->twig->render('admin/adminErreur.html.twig');
+        return $this->twig->render('admin/adminError.html.twig');
     }
 
     private function validate(array $data): array
