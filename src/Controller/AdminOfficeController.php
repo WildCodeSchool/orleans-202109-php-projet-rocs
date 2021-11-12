@@ -17,7 +17,8 @@ class AdminOfficeController extends AbstractController
      */
     public function add(): string
     {
-        $errors = [];
+        $errors = $office = [];
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
             $office = array_map('trim', $_POST);
@@ -50,6 +51,6 @@ class AdminOfficeController extends AbstractController
                 header('Location:/admin/office/ajout');
             }
         }
-        return $this->twig->render('admin/adminOfficeAdd.html.twig', ['errors' => $errors]);
+        return $this->twig->render('admin/adminOfficeAdd.html.twig', ['errors' => $errors, 'office' => $office]);
     }
 }

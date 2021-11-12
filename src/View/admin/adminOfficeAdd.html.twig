@@ -1,5 +1,8 @@
 {% extends "adminLayout.html.twig" %}
-
+{% block stylesheet %}
+{{ parent() }}
+<link rel="stylesheet" href="/assets/css/admin/adminActivities.css">
+{% endblock %}
 {% block content %}
 
 <main class="container">
