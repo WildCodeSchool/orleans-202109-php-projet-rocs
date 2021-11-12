@@ -21,6 +21,7 @@ class AdminTrainerController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
             $trainer = array_map('trim', $_POST);
+
             if (empty($trainer['lastname'])) {
                 $errors[] = 'Le nom est obligatoire';
             }
