@@ -9,6 +9,7 @@
 return [
     '' => ['HomeController', 'index',],
     'admin/office' => ['AdminOfficeController', 'index'],
+    'admin/office/ajout' => ['AdminOfficeController', 'add'],
     'association' => ['OfficeController', 'index',],
     'adhesion' => ['MembershipController', 'index',],
     'activites' => ['ActivityController', 'index',],
