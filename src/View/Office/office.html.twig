@@ -1,0 +1,39 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Association{% endblock %}
+
+{% block content %}
+
+<main class="container">
+    <h1 class="title-association text-center mt-5">Association</h1>
+    <section class="history text-justify">
+        <h2 class="title-history text-center mt-5 mb-4">L'histoire</h2>
+        <p>Créé en 1986 afin d’organiser un raid en patins à roulettes de 1200 kilomètres en 13 étapes entre Saint Jean
+            de la Ruelle et Amposta
+            (ville espagnole jumelée).
+        <p>ROCS Roller offre un encadrement convivial et structuré qui vous permet de
+            découvrir et développer le plaisir
+            de la glisse en roller. Quelque soit votre niveau, votre âge, vous y trouverez des cours et des créneaux
+            adaptés, allant de l'apprentissage
+            du roller aux entrainements plus poussés selon les disciplines et vos envies de compétitions.</p>
+        <p>Le tout
+            encadré par un personnel formé.</p>
+    </section>
+    <section class="cards-office text-center">
+        <h2 class="title-office mt-5 mb-4">Le bureau</h2>
+        <p>Le bureau a été élu lors du conseil d’administration du 8 juillet 2021. Il est composé de 3 membres.</p>
+        <div class="row justify-content-center gap-5">
+            {% for office in offices %}
+            <div class="col-sm-3">
+                <div class="card bg-light mb-3 mb-5 p-0">
+                    <img src="uploads/{{ office.image }} " class="img-fluid rounded" alt="personnel">
+                    <div class="card-body">
+                        <h3 class="card-text">{{ office.role }}</h3>
+                        <p class="card-text">{{ office.firstname }} {{ office.lastname }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+{% endblock %}
