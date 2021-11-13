@@ -6,7 +6,7 @@
 {% block content %}
 	<div class="container">
 		<div class="row">
-			<h1 class="text-center my-5">Ajouter un entraîneur</h1>
+			<h1 class="text-center my-5">Modifier un entraîneur</h1>
 		</div>
 		{% if errors is not empty %}
 			<div class="alert alert-danger p-0 ps-4 col-6 offset-3">
@@ -29,8 +29,8 @@
 				</div>
 				<div class="row">
 					<div class="mb-3 col-3 offset-3">
-						<label for="phoneNumber" class="form-label">Tèlèphone</label>
-						<input type="tel" name="phoneNumber" id="phoneNumber" class="form-control" placeholder="Tèlèphone" value=" {{ trainer.phoneNumber }} ">
+						<label for="phoneNumber" class="form-label">Téléphone</label>
+						<input type="tel" name="phoneNumber" id="phoneNumber" class="form-control" placeholder="Téléphone" value=" {{ trainer.phoneNumber }} ">
 					</div>
 					<div class="mb-3 col-3 ">
 						<label for="email" class="form-label">E-mail</label>
@@ -43,7 +43,7 @@
 						<input type="list" name="gender" id="gender" class="form-control" placeholder="Civilité" value=" {{ trainer.gender }} ">
 					</div>
 					<div class="row">
-						<button type="submit" class="btn btn-primary btnAddTrainer offset-5 col-2 mt-2">Envoyer</button>
+						<button type="submit" class="btn btn-primary btnAddTrainer offset-5 col-2 mt-2">Valider</button>
 					</div>
 				</form>
 			</div>
