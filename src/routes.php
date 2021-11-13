@@ -12,7 +12,6 @@ return [
     'admin/office' => ['AdminOfficeController', 'index'],
     'association' => ['OfficeController', 'index',],
     'adhesion' => ['MembershipController', 'index',],
-    'activites' => ['ActivityController', 'index',],
     'items/edit' => ['ItemController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
