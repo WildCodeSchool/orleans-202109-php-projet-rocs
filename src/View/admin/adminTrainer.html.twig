@@ -1,0 +1,57 @@
+{% extends "adminLayout.html.twig" %}
+{% block stylesheet %}
+	{{ parent() }}
+	<link rel="stylesheet" href="/assets/css/admin/adminTrainers.css">
+{% endblock %}
+{% block content %}
+	<!--TODO Extend adminLayout-->
+	<div class="container">
+		<div class="row">
+			<h1 class="text-center my-5">Administration des entraîneurs</h1>
+		</div>
+		<div class="row justify-content-center">
+			<a class="btn btn-primary btnAddTrainer" href="admin/entraineur/ajouter" role="button">Ajouter un entraîneur</a>
+		</div>
+		<div class="row">
+			<table class="table table-hover my-5">
+				<thead class="bg-dark">
+					<tr>
+						<th scope="col">Nom</th>
+						<th scope="col">Prénom</th>
+						<th scope="col">Téléphone</th>
+						<th scope="col">E-mail</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for trainer in trainers %}
+						<tr class="align-middle">
+							<td>
+								{{ trainer.firstname }}
+							</td>
+							<td>
+								{{ trainer.lastname }}
+							</td>
+							<td>
+								{{ trainer.phoneNumber }}
+							</td>
+							<td>
+								{{ trainer.email }}
+							</td>
+							<td class="text-center">
+								<a class="btn btn-primary py-1 btnAddTrainer" href="/admin/entraineur/modifier?id= {{ trainer.id }}"  role="button">Modifier</a>
+							</td>
+							<td class="text-center">
+								 <form action="/admin/entraineur/supprimer" method="POST">
+                            <input type="hidden" name="id" value=" {{ trainer.id }} ">
+                            <button class="btn btn-primary btnAddTrainer">Supprimer</button>
+                        </form>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}
