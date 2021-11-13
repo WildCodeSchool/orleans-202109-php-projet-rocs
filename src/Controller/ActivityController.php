@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Model\ActivityManager;
-use App\Model\TrainerManager;
 
 class ActivityController extends AbstractController
 {
@@ -12,7 +11,7 @@ class ActivityController extends AbstractController
         $activityManager = new ActivityManager();
         $activities = $activityManager->selectAll();
         return $this->twig->render('Activity/index.html.twig', ['activities' => $activities]);
-    }
+
 
     public function show(int $id): string
     {

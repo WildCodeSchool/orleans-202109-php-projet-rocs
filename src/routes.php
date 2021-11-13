@@ -9,11 +9,14 @@
 return [
     '' => ['HomeController', 'index',],
     'activites' => ['ActivityController', 'index',],
+    'admin/office' => ['AdminOfficeController', 'index'],
+    'association' => ['OfficeController', 'index',],
     'adhesion' => ['MembershipController', 'index',],
-    'items' => ['ItemController', 'index',],
+    'activites' => ['ActivityController', 'index',],
     'items/edit' => ['ItemController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
     'activite' => ['ActivityController', 'show', ['id']],
+    'admin/activites' => ['AdminActivityController', 'index'],
 ];

@@ -1,0 +1,32 @@
+thead{
+    color: var(--light);
+}
+
+.line:nth-child(odd){
+    color: var(--primary-color);
+}
+
+.btnAddActivity{
+    background-color: var(--secondary-color);
+    border: none;
+    color: var(--dark);
+    width: fit-content;
+    justify-self: center;
+}
+
+.btnAddActivity:hover{
+    background-color: var(--primary-color);
+}
+
+.btnAddActivity:active{
+    background-color: var(--primary-color);
+}
+
+.btnAddActivity:focus{
+    background-color: var(--primary-color);
+    box-shadow: none;
+}
+
+.divAddActivity{
+    justify-content: center;
+}
