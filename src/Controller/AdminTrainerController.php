@@ -43,14 +43,19 @@ class AdminTrainerController extends AbstractController
         if (empty($trainer['lastname'])) {
             $errors[] = 'Le nom est obligatoire';
         }
+        $maxLastnameLength = 155;
+        if (strlen($trainer['lastname']) > $maxLastnameLength) {
+            $errors[] = 'Le champ nom ne peut être plus long que ' . $maxLastnameLength;
+        }
         if (empty($trainer['firstname'])) {
             $errors[] = 'Le prénom est obligatoire';
         }
-        $maxphoneNumberLength = 10;
+        $maxfirstnameLength = 155;
+        if (strlen($trainer['firstname']) > $maxfirstnameLength) {
+            $errors[] = 'Le champ prénom ne peut être plus long que ' . $maxfirstnameLength;
+        }
         if (empty($trainer['phoneNumber'])) {
             $errors[] = 'Le téléphone est obligatoire';
-        } elseif ($trainer['phoneNumber'] > $maxphoneNumberLength || $trainer['phoneNumber'] < $maxphoneNumberLength) {
-            $errors[] = 'Téléphone invalide';
         }
         if (empty($trainer['email'])) {
             $errors[] = 'Le mail est obligatoire';
