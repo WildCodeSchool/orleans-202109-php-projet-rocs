@@ -23,7 +23,7 @@ class AdminActivityController extends AbstractController
             header('Location: /admin/activites');
         }
     }
-  
+
     public function add(): string
     {
         $trainerManager = new TrainerManager();
