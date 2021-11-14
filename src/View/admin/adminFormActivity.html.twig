@@ -20,21 +20,21 @@
         <form action="" method="POST" class="mb-5 mt-2">
             <div class="row">
                 <div class="mb-3 col-6 offset-3">
-                    <label for="activity" class="form-label">Activité</label>
-                    <input type="text" class="form-control" id="activity" name="activity" placeholder="Roller Skating"
-                        value=" {{ data.activity }} ">
+                    <label for="name" class="form-label">Activité</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Roller Skating"
+                        value="{{ data.name }} ">
                 </div>
             </div>
             <div class="row">
                 <div class="mb-3 col-3 offset-3">
                     <label for="schedule" class="form-label">Horaires</label>
                     <input type="text" name="schedule" id="schedule" class="form-control" placeholder="20h - 22h"
-                        value=" {{ data.schedule }} ">
+                        value="{{ data.schedule }} ">
                 </div>
                 <div class="mb-3 col-3 ">
                     <label for="days" class="form-label">Jours</label>
                     <input type="text" name="days" id="days" class="form-control" placeholder="Mardi - Jeudi"
-                        value=" {{ data.days }} ">
+                        value="{{ data.days }} ">
                 </div>
             </div>
             <div class="row">
@@ -43,7 +43,7 @@
                     <select name="trainer" id="trainer" class="form-select">
                         <option value="">Pas d'entraîneur</option>
                         {% for trainer in trainers %}
-                        <option value=" {{ trainer.id }} " {% if trainer.id==data.trainer %} selected {% endif %}>
+                        <option value="{{ trainer.id }}" {% if trainer.id==data.trainer %} selected {% endif %}>
                             {{ trainer.lastname ~ ' ' ~ trainer.firstname }}
                         </option>
                         {% endfor %}

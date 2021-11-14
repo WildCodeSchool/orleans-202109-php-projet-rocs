@@ -32,11 +32,37 @@ class AdminActivityController extends AbstractController
             }
         }
         return $this->twig->render(
-            'admin/adminAddActivity.html.twig',
+            'admin/adminFormActivity.html.twig',
             [
                 'trainers' => $trainers,
                 'errors' => $errors,
                 'data' => $data,
+            ]
+        );
+    }
+
+    public function modify(int $id): string
+    {
+        $activityManager = new activityManager();
+        $activity = $activityManager->activityById($id);
+        $trainerManager = new TrainerManager();
+        $trainers = $trainerManager->selectAll();
+        $errors = [];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $activity = array_map('trim', $_POST);
+            $activity['id'] = $id;
+            $errors = $this->validate($activity, $trainers);
+            if (empty($errors)) {
+                $activityManager->modifyActivity($activity);
+                header('Location: /admin/activites');
+            }
+        }
+        return $this->twig->render(
+            'admin/adminFormActivity.html.twig',
+            [
+                'data' => $activity,
+                'trainers' => $trainers,
+                'errors' => $errors,
             ]
         );
     }
@@ -48,12 +74,12 @@ class AdminActivityController extends AbstractController
     private function validate(array $data, array $trainers): array
     {
         $errors = [];
-        if (empty($data['activity'])) {
+        if (empty($data['name'])) {
             $errors['emptyActivity'] = 'Le champs "Activité" ne peut être vide';
         }
 
         $maxActivityLength = 100;
-        if (strlen($data['activity']) >= $maxActivityLength) {
+        if (strlen($data['name']) >= $maxActivityLength) {
             $errors['toLongActivity'] = 'Le champ "Activité" ne peut être plus long que ' . $maxActivityLength;
         }
 
@@ -83,10 +109,15 @@ class AdminActivityController extends AbstractController
             $errors['emptyWho'] = 'Le champ "Pour qui" ne peut être vide';
         }
 
-        if (in_array($data['trainer'], $trainers)) {
-            $errors['noTrainer'] = 'Aucun entraîneur n\'a été trouvé pour le champs sélectionner';
+        foreach ($trainers as $trainer) {
+            $count = 0;
+            if ($data['trainer'] == $trainer['id']) {
+                $count++;
+            }
+            if ($count != 1 && $data['trainer'] != '') {
+                $errors['noTrainer'] = 'L\'entraineur sélectionné est introuvable';
+            }
         }
-
         return $errors;
     }
 }

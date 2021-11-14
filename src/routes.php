@@ -20,4 +20,5 @@ return [
     'activite' => ['ActivityController', 'show', ['id']],
     'admin/activites' => ['AdminActivityController', 'index'],
     'admin/activites/ajouter' => ['AdminActivityController', 'add'],
+    'admin/activites/modifier' => ['AdminActivityController', 'modify', ['id']]
 ];
