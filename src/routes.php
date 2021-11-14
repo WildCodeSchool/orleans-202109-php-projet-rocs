@@ -10,6 +10,7 @@ return [
     '' => ['HomeController', 'index',],
     'admin/office' => ['AdminOfficeController', 'index'],
     'admin/office/ajout' => ['AdminOfficeController', 'add'],
+    'admin/office/editer' => ['AdminOfficeController', 'edit', ['id']],
     'association' => ['OfficeController', 'index',],
     'adhesion' => ['MembershipController', 'index',],
     'activites' => ['ActivityController', 'index',],
