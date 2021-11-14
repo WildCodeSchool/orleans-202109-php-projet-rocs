@@ -6,27 +6,13 @@ use App\Model\TrainerManager;
 
 class AdminTrainerController extends AbstractController
 {
-    public function index(): string
-    {
-        $trainersManager = new TrainerManager();
-        $trainers = $trainersManager->SelectAll();
-
-        return $this->twig->render('admin/adminTrainer.html.twig', ['trainers' => $trainers]);
-    }
-
-
 
     public function add(): string
     {
         $errors = $trainer = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // clean $_POST data
             $trainer = array_map('trim', $_POST);
             $errors = $this->trainerValidate($trainer);
-
-            // TODO validations (length, format...)
-
-            // if validation is ok, update and redirection
             if (empty($errors)) {
                 $trainersManager  = new TrainerManager();
                 $trainersManager->insert($trainer);

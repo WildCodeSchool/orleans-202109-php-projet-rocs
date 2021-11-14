@@ -5,9 +5,6 @@ namespace App\Model;
 class TrainerManager extends AbstractManager
 {
     public const TABLE = 'trainer';
-
-
-
     public function insert(array $trainer): void
     {
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`firstname`,`lastname`,`phoneNumber`,
