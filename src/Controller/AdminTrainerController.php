@@ -12,14 +12,9 @@ class AdminTrainerController extends AbstractController
         $trainerManager = new TrainerManager();
         $trainer = $trainerManager->selectOneById($id);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // clean $_POST data
             $trainer = array_map('trim', $_POST);
             $errors = $this->trainerValidate($trainer);
             $trainer['id'] = $id;
-
-            // TODO validations (length, format...)
-
-            // if validation is ok, update and redirection
             if (empty($errors)) {
                 $trainerManager->update($trainer);
                 header('Location: /admin/entraineur');
