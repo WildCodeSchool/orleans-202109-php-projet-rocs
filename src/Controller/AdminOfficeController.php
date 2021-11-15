@@ -47,7 +47,7 @@ class AdminOfficeController extends AbstractController
             $errors = $this->officeValidate($office);
             if (empty($errors)) {
                 $officeManager->update($office);
-                header('Location: /admin/office/editer');
+                header('Location: /admin/office');
             }
         }
         return $this->twig->render('admin/adminOfficeEdit.html.twig', ['errors' => $errors, 'office' => $office]);
