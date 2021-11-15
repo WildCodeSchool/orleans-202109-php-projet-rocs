@@ -6,7 +6,7 @@ thead {
     color: var(--primary-color);
 }
 
-.btnAddActivity {
+.btnAddTrainer {
     background-color: var(--secondary-color);
     border: none;
     color: var(--dark);
@@ -14,19 +14,15 @@ thead {
     justify-self: center;
 }
 
-.btnAddActivity:hover {
+.btnAddTrainer:hover {
     background-color: var(--primary-color);
 }
 
-.btnAddActivity:active {
+.btnAddTrainer:active {
     background-color: var(--primary-color);
 }
 
-.btnAddActivity:focus {
+.btnAddTrainer:focus {
     background-color: var(--primary-color);
     box-shadow: none;
-}
-
-.divAddActivity {
-    justify-content: center;
 }

@@ -6,7 +6,6 @@ use App\Model\TrainerManager;
 
 class AdminTrainerController extends AbstractController
 {
-
     public function add(): string
     {
         $errors = $trainer = [];
