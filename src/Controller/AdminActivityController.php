@@ -46,7 +46,7 @@ class AdminActivityController extends AbstractController
         $activityManager = new activityManager();
         $activity = $activityManager->activityById($id);
         $trainerManager = new TrainerManager();
-        $trainers = $trainerManager->selectAll();
+        $trainers = $trainerManager->selectAll('lastname');
         $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $activity = array_map('trim', $_POST);
