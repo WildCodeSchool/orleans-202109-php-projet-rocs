@@ -1,0 +1,27 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Activités
+{% endblock %}
+{% block stylesheet %}
+	<link rel="stylesheet" href="assets/css/activites.css">
+{% endblock %}
+{% block content %}
+	<h1 class="text-center mt-5">Nos activités</h1>
+	<main class="container fluid ">
+		{% for activity in activities %}
+			<div class="card  card-activities  bg-light  w-80   my-5">
+				<div class="row g-0 ">
+					<div class="col-md-8 p-5">
+						<div class="card-body card-activites ">
+							<h2 class="card-title mb-5">{{ activity.name }}</h2>
+							<p class="card-text mt-5">{{ activity.description }}</p>
+							<a class="btn activity-btn mb-2" href="activite?id={{ activity.id }}">en savoir plus</a>
+						</div>
+					</div>
+					<div class="col-md-4 p-5 d-flex align-items-center ">
+						<img src="uploads/{{ activity.image }} " class="img-fluid rounded" alt="image activites">
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</main>
+{% endblock %}

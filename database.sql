@@ -7,6 +7,61 @@
 -- Version du serveur :  5.7.19-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.22-0ubuntu0.16.04.1
 
+CREATE TABLE `activity` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `name` varchar(100) NOT NULL,
+    `description` text NOT NULL,
+    `schedule` varchar(155) NOT NULL,
+    `days` varchar(60) NOT NULL,
+    `who` text NOT NULL,
+    `trainer_id` int DEFAULT NULL,
+    `image` varchar(255) DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `trainer_id` (`trainer_id`),
+    CONSTRAINT `activity_ibfk_1` FOREIGN KEY (`trainer_id`) REFERENCES `trainer` (`id`)
+  ) --
+insert into
+  activity(
+    id,
+    name,
+    description,
+    schedule,
+    days,
+    who,
+    trainer_id,
+    image
+  )
+values(
+    '2',
+    'Course à pied',
+    'La course à pied est, avec la marche, l' un des deux modes de locomotion bip è des de l 'être humain. Caractérisée par une phase de suspension durant laquelle aucun des deux pieds ne touche le sol, elle permet un déplacement plus économe en énergie que la marche pour des vitesses allant d' environ 6 km / h à plus de 40 km / h.',' 19h à 20h30 ',' Mardi - Jeudi ',' Pour les plus petits pleins d 'énergie et les plus grands compétiteurs',
+    '1',
+    'run.jpg'
+  );
+insert into
+  activity(
+    id,
+    name,
+    description,
+    schedule,
+    days,
+    who,
+    trainer_id,
+    image
+  )
+values(
+    '3',
+    'Artistique',
+    'Pratique  éducative,  de  proximité  et  en  groupe  d' activit é s physiques diversifi é es elle sert d 'accompagnement  pour  entretenir,  améliorer,  dynamiser  la  santé,  le  bien-être  et  la  qualité  perçue de la vie  Méthode douce encore peu connue, elle allie  tonification, étirements et relâchement musculaire pour une  sensation immédiate de bien-être. ',
+    '10h - 13h',
+    'Lundi - Mardi',
+    'Martine FERREIRA',
+    null,
+    'art.jpg'
+  );
+-- Structure de la table trainer
+
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
