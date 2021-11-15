@@ -1,5 +1,60 @@
 {% extends 'layout.html.twig' %}
-
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/home.css">
+{% endblock %}
 {% block content %}
-    <h1>Hello Wilder !</h1>
+	<header>
+		<div class="header-rocs bg-cover text-white d-flex ">
+			<div class="container py-5 text-center bg-dark  bg-opacity-75 h-100 w-100">
+				<h1 class=" h1-header mt-5 fw-bold">Rocs Roller</h1>
+				<h2 class="h2-header  mt-5 fw-bold ">Roller Olympique Club Stéoruellan</h2>
+				<p>Artistique - Course - Ecole de patinage - Freestyle - Randonnée - Rink Hockey - Roller Hockey
+				</p>
+			</div>
+		</div>
+	</header>
+	<div class="container ">
+		<h2 class=" my-5 text-center">Qui sommes nous ?</h2>
+		<div class="row">
+			<div class="col mb-4">
+				<p>A l'occasion de la fête du Sport, la Mairie de St Jean de la Ruelleorganisait en 1984, une randonnée très particulière puisque tous les participants chaussaient des patins à roulettes.
+															En 1986, la Ville de St jean de la Ruelle projette de relever ungrand défi : parcourir 1200 kms en relais sur patins à roulettes et relier
+															ST JEAN DE LA RUELLE à AMPOSTA, la Ville jumelle Espagnole.
+															Le R.O.C.S. ou Roller Olympique Club Stéoruellan était né.
+															Vingt huit jeunes participent à cette aventure et grâce à leur exploit,obtiennent une mention au Livre des Records
+															Au fil des années, le Club s'agrandit et compte actuellement
+															5 disciplines : Artistique, COURSE, HOCKEY, RINK HOCKEY, RANDONNEEainsi qu'une Ecole de Patinage.
+															Le R.O.C.S. est affilié à la Fédération Française de Roller Sports (FFRS).</p>
+			</div>
+		</div>
+		<div class="card  card-activities  bg-light  w-80   my-5">
+			<div class="row g-0 ">
+				<div class="col-md-7 ">
+					<h2 class="featurette-heading my-5 mr-3 text-center">Nos activités</h2>
+					<p class="text-center m-5 mb-0">Le ROCS roller propose des multi-activités en salle, de roller artistique et de roller loisir.
+						Un rendez-vous idéal pour apprendre les bases du roller ou se perfectionner pour les plus agiles. Sport complet regroupant agilité, vitesse, équilibre, qui renforce naturellement les cuisses, les fessiers, la ceinture abdominale et dorsale.
+					</p>
+					<a class="btn activity-btn m-3" href="activites">en savoir plus</a>
+				</div>
+				<div class="col-md-5 mt-3">
+					<div id="carouselExampleControls" class="carousel slide m-2" data-bs-ride="carousel">
+						<div class="carousel-inner">
+							{% for activity in activities %}
+								<div class="carousel-item {{ loop.first?'active':''}} ">
+									<img src="uploads/{{ activity.image }} " class="d-block w-100">
+								</div>
+							{% endfor %}
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
