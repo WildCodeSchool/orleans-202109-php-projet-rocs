@@ -12,6 +12,8 @@ class TrainerManager extends AbstractManager
             " SET `firstname` = :firstname , `lastname` = :lastname ,
             `phoneNumber` = :phoneNumber , `email` = :email ,`gender` = :gender WHERE id=:id");
         $statement->bindValue('id', $trainer['id'], \PDO::PARAM_INT);
+        return $statement->execute();
+    }
 
     public function insert(array $trainer): void
     {
@@ -22,7 +24,6 @@ class TrainerManager extends AbstractManager
         $statement->bindValue('phoneNumber', $trainer['phoneNumber']);
         $statement->bindValue('email', $trainer['email']);
         $statement->bindValue('gender', $trainer['gender'], \PDO::PARAM_STR);
-        return $statement->execute();
         $statement->execute();
     }
 }
