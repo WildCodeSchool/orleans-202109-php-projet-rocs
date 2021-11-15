@@ -8,10 +8,12 @@
 // e.g route '/item/edit?id=1' will execute $itemController->edit(1)
 return [
     '' => ['HomeController', 'index',],
+    'activites' => ['ActivityController', 'index',],
     'admin/office' => ['AdminOfficeController', 'index'],
+    'admin/office/ajout' => ['AdminOfficeController', 'add'],
+    'admin/office/editer' => ['AdminOfficeController', 'edit', ['id']],
     'association' => ['OfficeController', 'index',],
     'adhesion' => ['MembershipController', 'index',],
-    'activites' => ['ActivityController', 'index',],
     'items/edit' => ['ItemController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
@@ -19,4 +21,11 @@ return [
     'activite' => ['ActivityController', 'show', ['id']],
     'admin/activites' => ['AdminActivityController', 'index'],
     'admin/entraineur/supprimer' => ['AdminTrainerController', 'delete',],
+    'admin/entraineur/ajouter' => ['AdminTrainerController', 'add',],
+    'admin/entraineur' => ['AdminTrainerController', 'index'],
+    'admin/connection' => ['AdminController', 'adminConnection'],
+    'admin/deconnection' => ['AdminController', 'adminDeconnection'],
+    'admin/erreur' => ['AdminController', 'error'],
+    'admin/activites/suppression' => ['AdminActivityController','delete'],
+    'admin/activites/ajouter' => ['AdminActivityController', 'add'],
 ];
