@@ -9,9 +9,10 @@
 return [
     '' => ['HomeController', 'index',],
     'activites' => ['ActivityController', 'index',],
-    'admin/office' => ['AdminOfficeController', 'index'],
-    'admin/office/ajout' => ['AdminOfficeController', 'add'],
+    'admin/office' => ['AdminOfficeController', 'index',],
+    'admin/office/ajout' => ['AdminOfficeController', 'add',],
     'admin/office/editer' => ['AdminOfficeController', 'edit', ['id']],
+    'admin/office/supprimer' => ['AdminOfficeController', 'delete',],
     'association' => ['OfficeController', 'index',],
     'adhesion' => ['MembershipController', 'index',],
     'items/edit' => ['ItemController', 'edit', ['id']],
