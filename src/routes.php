@@ -20,6 +20,9 @@ return [
     'activite' => ['ActivityController', 'show', ['id']],
     'admin/activites' => ['AdminActivityController', 'index'],
     'admin/entraineur/ajouter' => ['AdminTrainerController', 'add',],
+    'admin/connection' => ['AdminController', 'adminConnection'],
+    'admin/deconnection' => ['AdminController', 'adminDeconnection'],
+    'admin/erreur' => ['AdminController', 'error'],
     'admin/activites/suppression' => ['AdminActivityController','delete'],
     'admin/activites/ajouter' => ['AdminActivityController', 'add'],
 ];
