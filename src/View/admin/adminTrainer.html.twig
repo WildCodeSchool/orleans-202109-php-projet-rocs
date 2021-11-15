@@ -28,10 +28,10 @@
 					{% for trainer in trainers %}
 						<tr class="align-middle">
 							<td>
-								{{ trainer.firstname }}
+								{{ trainer.lastname }}
 							</td>
 							<td>
-								{{ trainer.lastname }}
+								{{ trainer.firstname }}
 							</td>
 							<td>
 								{{ trainer.phoneNumber }}
@@ -40,13 +40,13 @@
 								{{ trainer.email }}
 							</td>
 							<td class="text-center">
-								<a class="btn btn-primary py-1 btnAddTrainer" href="/admin/entraineur/modifier?id= {{ trainer.id }}"  role="button">Modifier</a>
+								<a class="btn btn-primary py-1 btnAddTrainer" href="/admin/entraineur/modifier?id= {{ trainer.id }}" role="button">Modifier</a>
 							</td>
 							<td class="text-center">
-								 <form action="/admin/entraineur/supprimer" method="POST">
-                            <input type="hidden" name="id" value=" {{ trainer.id }} ">
-                            <button class="btn btn-primary btnAddTrainer">Supprimer</button>
-                        </form>
+								<form action="/admin/entraineur/supprimer" method="POST">
+									<input type="hidden" name="id" value=" {{ trainer.id }} ">
+									<button class="btn btn-primary btnAddTrainer">Supprimer</button>
+								</form>
 							</td>
 						</tr>
 					{% endfor %}
