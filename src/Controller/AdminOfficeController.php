@@ -58,25 +58,25 @@ class AdminOfficeController extends AbstractController
         $errors = [];
 
         if (empty($office['role'])) {
-            $errors[] = 'Le champ role est obligatoire';
+            $errors[] = 'Le champ rôle est obligatoire';
         }
         $maxRoleLength = 50;
         if (strlen($office['role']) > $maxRoleLength) {
-            $errors[] = 'Le champ role doit faire moins de ' . $maxRoleLength;
+            $errors[] = 'Le champ rôle doit faire moins de ' . $maxRoleLength . 'caractères';
         }
         if (empty($office['lastname'])) {
             $errors[] = 'Le champ nom est obligatoire';
         }
         $maxLastnameLength = 60;
         if (strlen($office['lastname']) > $maxLastnameLength) {
-            $errors[] = 'Le champ nom doit faire moins de ' . $maxLastnameLength;
+            $errors[] = 'Le champ nom doit faire moins de ' . $maxLastnameLength . 'caractères';
         }
         if (empty($office['firstname'])) {
             $errors[] = 'Le champ prénom est obligatoire';
         }
         $maxFirstnameLength = 60;
         if (strlen($office['firstname']) > $maxFirstnameLength) {
-            $errors[] = 'Le champ prénom doit faire moins de ' . $maxFirstnameLength;
+            $errors[] = 'Le champ prénom doit faire moins de ' . $maxFirstnameLength . 'caractères';
         }
         return $errors;
     }
