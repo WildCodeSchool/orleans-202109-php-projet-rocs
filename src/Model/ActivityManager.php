@@ -16,10 +16,32 @@ class ActivityManager extends AbstractManager
         return $statement->fetch(\PDO::FETCH_ASSOC);
     }
 
-    public function selectAllAdmin(): array
+    public function selectAllWithTrainer(): array
     {
-        $query = "SELECT a.id AS id, a.name AS name, CONCAT(t.firstname, ' ', t.lastname) AS  trainer FROM "
+        $query = "SELECT a.id AS activity_id, a.name AS name, 
+            CONCAT(t.firstname, ' ', t.lastname) AS  trainer, t.id as trainer_id FROM "
             . static::TABLE . " AS a LEFT JOIN trainer AS t ON t.id = a.trainer_id";
         return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function addActivity(array $newActivity): void
+    {
+
+        $query = "INSERT INTO activity (`name`,`description`,`schedule`,`days`,`who`,`trainer_id`) 
+            VALUES (:activity,:description,:schedule,:days,:who,:trainer)";
+        $statement = $this->pdo->prepare($query);
+
+        $statement->bindValue('activity', $newActivity['activity'], \PDO::PARAM_STR);
+        $statement->bindValue('description', $newActivity['description'], \PDO::PARAM_STR);
+        $statement->bindValue('schedule', $newActivity['schedule'], \PDO::PARAM_STR);
+        $statement->bindValue('days', $newActivity['days'], \PDO::PARAM_STR);
+        $statement->bindValue('who', $newActivity['who'], \PDO::PARAM_STR);
+        if ($newActivity['trainer'] != "") {
+            $statement->bindValue('trainer', $newActivity['trainer'], \PDO::PARAM_INT);
+        } else {
+            $statement->bindValue('trainer', null);
+        }
+
+        $statement->execute();
     }
 }

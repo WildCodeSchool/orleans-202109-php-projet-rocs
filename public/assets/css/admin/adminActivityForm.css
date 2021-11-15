@@ -1,32 +1,19 @@
-thead {
-    color: var(--light);
-}
-
-.line:nth-child(odd) {
-    color: var(--primary-color);
-}
-
-.btnAddActivity {
+.btn{
     background-color: var(--secondary-color);
     border: none;
     color: var(--dark);
-    width: fit-content;
     justify-self: center;
 }
 
-.btnAddActivity:hover {
+.btn:hover{
     background-color: var(--primary-color);
 }
 
-.btnAddActivity:active {
+.btn:active{
     background-color: var(--primary-color);
 }
 
-.btnAddActivity:focus {
+.btn:focus{
     background-color: var(--primary-color);
     box-shadow: none;
-}
-
-.divAddActivity {
-    justify-content: center;
 }
