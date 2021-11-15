@@ -50,6 +50,9 @@ class AdminController extends AbstractController
 
     public function view(): string
     {
+        if (!isset($_SESSION['username'])) {
+            header('Location: /admin/erreur');
+        }
         $adminManager = new AdminManager();
         $admins = $adminManager->selectAllAdmin();
 
