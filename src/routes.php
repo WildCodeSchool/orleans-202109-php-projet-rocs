@@ -19,6 +19,7 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     'activite' => ['ActivityController', 'show', ['id']],
     'admin/activites' => ['AdminActivityController', 'index'],
+    'admin/entraineur' => ['AdminTrainerController', 'index'],
     'admin/connection' => ['AdminController', 'adminConnection'],
     'admin/deconnection' => ['AdminController', 'adminDeconnection'],
     'admin/erreur' => ['AdminController', 'error'],
