@@ -16,9 +16,10 @@ class ActivityManager extends AbstractManager
         return $statement->fetch(\PDO::FETCH_ASSOC);
     }
 
-    public function selectAllAdmin(): array
+    public function selectAllWithTrainer(): array
     {
-        $query = "SELECT a.id AS id, a.name AS name, CONCAT(t.firstname, ' ', t.lastname) AS  trainer FROM "
+        $query = "SELECT a.id AS activity_id, a.name AS name, 
+            CONCAT(t.firstname, ' ', t.lastname) AS  trainer, t.id as trainer_id FROM "
             . static::TABLE . " AS a LEFT JOIN trainer AS t ON t.id = a.trainer_id";
         return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
     }
