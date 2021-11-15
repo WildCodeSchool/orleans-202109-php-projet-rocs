@@ -98,6 +98,15 @@ CREATE TABLE `office` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 
 --
+-- Dumping data for table `office`
+--
+
+/*!40000 ALTER TABLE `office` DISABLE KEYS */;
+INSERT INTO `office` VALUES (1,'Sylvain','Blondeau','president.jpg','Président'),(3,'Catherine','Ringer','secretaire.png','Secrétaire'),(5,'Steven','Seagal','tresorier.png','Trésorier');
+/*!40000 ALTER TABLE `office` ENABLE KEYS */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+--
 -- Contenu de la table `item`
 --
 
