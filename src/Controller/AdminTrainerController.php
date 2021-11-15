@@ -16,7 +16,6 @@ class AdminTrainerController extends AbstractController
             header('Location: /admin/entraineur');
         }
     }
-    
     public function add(): string
     {
         $errors = $trainer = [];
