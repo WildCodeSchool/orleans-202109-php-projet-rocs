@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Model\ActivityManager;
-use App\Model\TrainerManager;
 
 class ActivityController extends AbstractController
 {

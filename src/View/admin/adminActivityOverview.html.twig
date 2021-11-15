@@ -1,0 +1,41 @@
+{% extends "adminLayout.html.twig" %}
+{% block stylesheet %}
+{{ parent() }}
+<link rel="stylesheet" href="/assets/css/admin/adminActivities.css">
+{% endblock %}
+{% block content %}
+<!--TODO Extend adminLayout-->
+<div class="container">
+    <div class="row">
+        <h1 class="text-center my-5">Administration des activitées</h1>
+    </div>
+    <div class="row justify-content-center">
+        <a class="btn btn-primary btnAddActivity" href="/admin/activites/ajouter" role="button">Ajouter une activité</a>
+    </div>
+    <div class="row">
+        <table class="table table-hover my-5">
+            <thead class="bg-dark">
+                <tr>
+                    <th scope="col">Activité</th>
+                    <th scope="col">Entraineur</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for activity in activities %}
+                <tr class="align-middle">
+                    <td> {{ activity.name }} </td>
+                    <td> {{ activity.trainer ?? 'Pas d\'entraîneur' }} </td>
+                    <td class="text-center"><a class="btn btn-primary py-1 btnAddActivity" 
+                        href="#" role="button">Modifier</a></td>
+                    <td class="text-center"><a class="btn btn-primary py-1 btnAddActivity" 
+                        href="#" role="button">Supprimer</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+{% endblock %}

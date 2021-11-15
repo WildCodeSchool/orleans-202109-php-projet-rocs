@@ -9,6 +9,8 @@
 
 namespace App\Controller;
 
+use App\Model\ActivityManager;
+
 class HomeController extends AbstractController
 {
     /**
@@ -21,6 +23,8 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        return $this->twig->render('Home/index.html.twig');
+        $activityManager = new ActivityManager();
+        $activities = $activityManager->selectAll();
+        return $this->twig->render('Home/index.html.twig', ['activities' => $activities]);
     }
 }
