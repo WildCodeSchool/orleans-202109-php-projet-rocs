@@ -10,6 +10,10 @@
 .adminLink:hover{
     color: var(--secondary-color);
 }
+
+.adminLink:focus{
+    color: var(--secondary-color);
+}
 .toggler{
     fill: var(--dark);
 }

@@ -9,7 +9,7 @@
         <h1 class="text-center my-5">Administration des activitées</h1>
     </div>
     <div class="row justify-content-center">
-        <a class="btn btn-primary btnAddActivity" href="#" role="button">Ajouter une activité</a>
+        <a class="btn btn-primary btnAddActivity" href="/admin/activites/ajouter" role="button">Ajouter une activité</a>
     </div>
     <div class="row">
         <table class="table table-hover my-5">
@@ -25,11 +25,14 @@
                 {% for activity in activities %}
                 <tr class="align-middle">
                     <td> {{ activity.name }} </td>
-                    <td> {{ activity.trainer }} </td>
+                    <td> {{ activity.trainer ?? 'Pas d\'entraîneur' }} </td>
                     <td class="text-center"><a class="btn btn-primary py-1 btnAddActivity" 
                         href="#" role="button">Modifier</a></td>
-                    <td class="text-center"><a class="btn btn-primary py-1 btnAddActivity" 
-                        href="#" role="button">Supprimer</a></td>
+                    <td class="text-center">
+                        <form action="/admin/activites/suppression" method="POST">
+                            <input type="hidden" name="activity_id" id="activity_id" value=" {{ activity.activity_id }} ">
+                            <button class="btn btn-primary btnAddActivity">Supprimer</button>
+                        </form>
                 </tr>
                 {% endfor %}
             </tbody>
