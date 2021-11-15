@@ -6,6 +6,14 @@ use App\Model\TrainerManager;
 
 class AdminTrainerController extends AbstractController
 {
+    public function index(): string
+    {
+        $trainersManager = new TrainerManager();
+        $trainers = $trainersManager->selectAll();
+
+        return $this->twig->render('admin/adminTrainer.html.twig', ['trainers' => $trainers]);
+    }
+
     public function add(): string
     {
         $errors = $trainer = [];
