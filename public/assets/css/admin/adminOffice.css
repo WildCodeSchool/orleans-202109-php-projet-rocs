@@ -1,0 +1,32 @@
+thead{
+    color: var(--light);
+}
+
+.line:nth-child(odd){
+    color: var(--primary-color);
+}
+
+.btnAddOffice{
+    background-color: var(--secondary-color);
+    border: none;
+    color: var(--dark);
+    width: fit-content;
+    justify-self: center;
+}
+
+.btnAddOffice:hover{
+    background-color: var(--primary-color);
+}
+
+.btnAddOffice:active{
+    background-color: var(--primary-color);
+}
+
+.btnAddOffice:focus{
+    background-color: var(--primary-color);
+    box-shadow: none;
+}
+
+.divAddOffice{
+    justify-content: center;
+}
