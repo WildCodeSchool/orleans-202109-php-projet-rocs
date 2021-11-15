@@ -15,7 +15,8 @@ class AdminTrainerController extends AbstractController
             $trainerManager->delete((int)$id);
             header('Location: /admin/entraineur');
         }
-
+    }
+    
     public function add(): string
     {
         $errors = $trainer = [];
