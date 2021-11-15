@@ -1,0 +1,51 @@
+<form action="" method="POST" class="mb-5 mt-2">
+    <div class="row">
+        <div class="mb-3 col-6 offset-3">
+            <label for="name" class="form-label">Activité</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Roller Skating"
+                value="{{ data.name }}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col-3 offset-3">
+            <label for="schedule" class="form-label">Horaires</label>
+            <input type="text" name="schedule" id="schedule" class="form-control" placeholder="20h - 22h"
+                value="{{ data.schedule }}">
+        </div>
+        <div class="mb-3 col-3 ">
+            <label for="days" class="form-label">Jours</label>
+            <input type="text" name="days" id="days" class="form-control" placeholder="Mardi - Jeudi"
+                value="{{ data.days }}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col-6 offset-3">
+            <label for="trainer" class="form-label">Entraîneur</label>
+            <select name="trainer" id="trainer" class="form-select">
+                <option value="">Pas d'entraîneur</option>
+                {% for trainer in trainers %}
+                <option value="{{ trainer.id }}" {% if trainer.id==data.trainer %} selected {% endif %}>
+                    {{ trainer.lastname ~ ' ' ~ trainer.firstname }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col-6 offset-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="description" id="description" class="form-control pb-5"
+                placeholder="Décrivez l'activité">{{ data.description }}</textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col-6 offset-3">
+            <label for="who" class="form-label">Pour qui ?</label>
+            <textarea name="who" id="who" class="form-control"
+                placeholder="Décrivez la cible">{{ data.who }}</textarea>
+        </div>
+    </div>
+    <div class="row">
+        <button class="btn btn-primary offset-5 col-2 mt-2">{{ button_name|default('Ajouter') }}</button>
+    </div>
+</form>

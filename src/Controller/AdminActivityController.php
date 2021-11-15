@@ -32,7 +32,7 @@ class AdminActivityController extends AbstractController
             }
         }
         return $this->twig->render(
-            'admin/adminFormActivity.html.twig',
+            'admin/adminAddActivity.html.twig',
             [
                 'trainers' => $trainers,
                 'errors' => $errors,
@@ -58,7 +58,7 @@ class AdminActivityController extends AbstractController
             }
         }
         return $this->twig->render(
-            'admin/adminFormActivity.html.twig',
+            'admin/adminEditActivity.html.twig',
             [
                 'data' => $activity,
                 'trainers' => $trainers,

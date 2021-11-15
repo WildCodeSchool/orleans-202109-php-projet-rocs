@@ -1,0 +1,21 @@
+{% extends "adminLayout.html.twig" %}
+{% block stylesheet %}
+{{ parent() }}
+<link rel="stylesheet" href="/assets/css/admin/adminActivityForm.css">
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1 class="text-center my-5">Créer une Activité</h1>
+    </div>
+
+    {% for error in errors %}
+    <div class="alert alert-danger p-0 ps-4 col-6 offset-3">
+        <p class="p-0 m-0 fs-6">{{ error }}</p>
+    </div>
+    {% endfor %}
+    <div class="row">
+        {% include "Include/_adminActivityForm.html.twig" %}
+    </div>
+</div>
+{% endblock %}
