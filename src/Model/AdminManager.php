@@ -21,10 +21,16 @@ class AdminManager extends AbstractManager
 
     public function selectOneAdmin(string $username): array
     {
-        $query = "SELECT * FROM admin WHERE username = :username";
+        $query = "SELECT * FROM " . self::TABLE . " WHERE username = :username";
         $statement = $this->pdo->prepare($query);
         $statement->bindValue('username', $username, \PDO::PARAM_STR);
         $statement->execute();
         return $statement->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function selectAllAdmin(): array
+    {
+        $query = "SELECT * FROM " . self::TABLE . " ORDER BY lastname ASC";
+        return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

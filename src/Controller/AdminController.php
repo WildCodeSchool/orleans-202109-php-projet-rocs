@@ -48,6 +48,14 @@ class AdminController extends AbstractController
         return $this->twig->render('admin/adminError.html.twig');
     }
 
+    public function view(): string
+    {
+        $adminManager = new AdminManager();
+        $admins = $adminManager->selectAllAdmin();
+
+        return $this->twig->render('admin/adminAdminsOverview.html.twig', ['admins' => $admins]);
+    }
+
     private function validate(array $data): array
     {
         $errors = [];
