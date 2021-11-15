@@ -10,6 +10,7 @@ return [
     '' => ['HomeController', 'index',],
     'activites' => ['ActivityController', 'index',],
     'admin/office' => ['AdminOfficeController', 'index'],
+    'admin/office/ajout' => ['AdminOfficeController', 'add'],
     'association' => ['OfficeController', 'index',],
     'adhesion' => ['MembershipController', 'index',],
     'items/edit' => ['ItemController', 'edit', ['id']],
@@ -18,4 +19,5 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     'activite' => ['ActivityController', 'show', ['id']],
     'admin/activites' => ['AdminActivityController', 'index'],
+    'admin/activites/ajouter' => ['AdminActivityController', 'add'],
 ];

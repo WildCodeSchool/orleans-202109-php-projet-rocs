@@ -132,7 +132,7 @@ CREATE TABLE `activity` (
 --
 
 /*!40000 ALTER TABLE `activity` DISABLE KEYS */;
-INSERT INTO `activity` VALUES (2,'Roller de Vitesse','Rouler c\'est être libre','19h à 20h30','Mardi - Jeudi','Pour les plus petits pleins d\'énergie et les plus grands compétiteurs',1);
+INSERT INTO `activity` VALUES (2,'Roller de Vitesse',"Rouler c\'est être libre','19h à 20h30','Mardi - Jeudi','Pour les plus petits pleins d\'énergie et les plus grands compétiteurs",1);
 /*!40000 ALTER TABLE `activity` ENABLE KEYS */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
