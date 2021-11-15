@@ -29,8 +29,11 @@
                     <td> {{ activity.trainer ?? 'Pas d\'entraîneur' }} </td>
                     <td class="text-center"><a class="btn btn-primary py-1 btnAddActivity" 
                         href="#" role="button">Modifier</a></td>
-                    <td class="text-center"><a class="btn btn-primary py-1 btnAddActivity" 
-                        href="#" role="button">Supprimer</a></td>
+                    <td class="text-center">
+                        <form action="/admin/activites/suppression" method="POST">
+                            <input type="hidden" name="activity_id" id="activity_id" value=" {{ activity.activity_id }} ">
+                            <button class="btn btn-primary btnAddActivity">Supprimer</button>
+                        </form>
                 </tr>
                 {% endfor %}
             </tbody>
