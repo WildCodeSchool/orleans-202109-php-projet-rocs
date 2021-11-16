@@ -21,6 +21,7 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     'activite' => ['ActivityController', 'show', ['id']],
     'admin/activites' => ['AdminActivityController', 'index'],
+    'admin/entraineur/supprimer' => ['AdminTrainerController', 'delete',],
     'admin/entraineur/editer' => ['AdminTrainerController', 'edit', ['id']],
     'admin/entraineur/ajouter' => ['AdminTrainerController', 'add',],
     'admin/entraineur' => ['AdminTrainerController', 'index'],

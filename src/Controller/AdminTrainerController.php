@@ -7,6 +7,16 @@ use App\Model\TrainerManager;
 class AdminTrainerController extends AbstractController
 {
 
+
+    public function delete()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = trim($_POST['id']);
+            $trainerManager = new TrainerManager();
+            $trainerManager->delete((int)$id);
+            header('Location: /admin/entraineur');
+        }
+    }
     public function edit(int $id): string
     {
         $errors = $trainer = [];
@@ -24,7 +34,6 @@ class AdminTrainerController extends AbstractController
 
         return $this->twig->render('admin/adminEditTrainer.html.twig', ['errors' => $errors, 'trainer' => $trainer]);
     }
-
 
 
     public function add(): string
