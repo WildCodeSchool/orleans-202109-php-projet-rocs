@@ -7,6 +7,16 @@ use App\Model\TrainerManager;
 class AdminTrainerController extends AbstractController
 {
 
+    public function index(): string
+    {
+        $trainersManager = new TrainerManager();
+        $trainers = $trainersManager->selectAll('lastname');
+
+        return $this->twig->render('admin/adminTrainer.html.twig', ['trainers' => $trainers]);
+    }
+
+
+
 
     public function delete()
     {
@@ -34,6 +44,7 @@ class AdminTrainerController extends AbstractController
 
         return $this->twig->render('admin/adminEditTrainer.html.twig', ['errors' => $errors, 'trainer' => $trainer]);
     }
+
 
 
     public function add(): string
