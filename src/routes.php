@@ -30,4 +30,5 @@ return [
     'admin/erreur' => ['AdminController', 'error'],
     'admin/activites/suppression' => ['AdminActivityController','delete'],
     'admin/activites/ajouter' => ['AdminActivityController', 'add'],
+    'admin/activites/modifier' => ['AdminActivityController', 'modify', ['id']]
 ];
