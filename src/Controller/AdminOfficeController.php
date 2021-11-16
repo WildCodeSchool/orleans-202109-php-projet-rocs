@@ -26,7 +26,7 @@ class AdminOfficeController extends AbstractController
             if (empty($errors)) {
                 $officeManager = new OfficeManager();
                 $officeManager->insert($office);
-                header('Location:/admin/office/ajout');
+                header('Location:/admin/office');
             }
         }
         return $this->twig->render('admin/adminOfficeAdd.html.twig', ['errors' => $errors, 'office' => $office]);

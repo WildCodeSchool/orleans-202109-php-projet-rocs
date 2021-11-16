@@ -16,15 +16,15 @@
 			</div>
 		{% endif %}
 		<div class="row">
-			<form action="" method="POST" class="mb-5 mt-2">
+			<form action="" method="POST" enctype="multipart/form-data" class="mb-5 mt-2">
 				<div class="row">
 					<div class="mb-3 col-3 offset-3">
-						<label for="lastname" class="form-label">Prénom</label>
-						<input type="text" name="lastname" id="lastname" class="form-control" placeholder="Prénom" value=" {{ trainer.lastname }} ">
+						<label for="lastname" class="form-label">Nom</label>
+						<input type="text" name="lastname" id="lastname" class="form-control" placeholder="Nom" value=" {{ trainer.lastname }} ">
 					</div>
 					<div class="mb-3 col-3 ">
-						<label for="firstname" class="form-label">Nom</label>
-						<input type="text" name="firstname" id="firstname" class="form-control" placeholder="Nom" value=" {{ trainer.firstname }} ">
+						<label for="firstname" class="form-label">Prénom</label>
+						<input type="text" name="firstname" id="firstname" class="form-control" placeholder="Prénoom" value=" {{ trainer.firstname }} ">
 					</div>
 				</div>
 				<div class="row">
@@ -41,6 +41,11 @@
 					<div class="mb-3 col-3 offset-3">
 						<label for="gender" class="form-label">Civilité</label>
 						<input type="list" name="gender" id="gender" class="form-control" placeholder="Civilité" value=" {{ trainer.gender }} ">
+					</div>
+				
+					<div class="mb-3 col-4 ">
+						<label for="image" class="form-label">Image</label>
+						<input type="file" name="image" id="image" class="form-control">
 					</div>
 					<div class="row">
 						<button type="submit" class="btn btn-primary btnAddTrainer offset-5 col-2 mt-2">Ajouter</button>

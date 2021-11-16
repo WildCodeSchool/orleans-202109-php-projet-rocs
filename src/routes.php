@@ -21,6 +21,7 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     'activite' => ['ActivityController', 'show', ['id']],
     'admin/activites' => ['AdminActivityController', 'index'],
+    'admin/entraineur/supprimer' => ['AdminTrainerController', 'delete',],
     'admin/entraineur/editer' => ['AdminTrainerController', 'edit', ['id']],
     'admin/entraineur/ajouter' => ['AdminTrainerController', 'add',],
     'admin/entraineur' => ['AdminTrainerController', 'index'],
@@ -29,4 +30,5 @@ return [
     'admin/erreur' => ['AdminController', 'error'],
     'admin/activites/suppression' => ['AdminActivityController','delete'],
     'admin/activites/ajouter' => ['AdminActivityController', 'add'],
+    'admin/activites/modifier' => ['AdminActivityController', 'modify', ['id']]
 ];
