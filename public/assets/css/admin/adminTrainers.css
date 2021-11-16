@@ -6,7 +6,7 @@ thead {
     color: var(--primary-color);
 }
 
-.btnAddOffice {
+.btnAddTrainer {
     background-color: var(--secondary-color);
     border: none;
     color: var(--dark);
@@ -14,19 +14,15 @@ thead {
     justify-self: center;
 }
 
-.btnAddOffice:hover {
+.btnAddTrainer:hover {
     background-color: var(--primary-color);
 }
 
-.btnAddOffice:active {
+.btnAddTrainer:active {
     background-color: var(--primary-color);
 }
 
-.btnAddOffice:focus {
+.btnAddTrainer:focus {
     background-color: var(--primary-color);
     box-shadow: none;
-}
-
-.divAddOffice {
-    justify-content: center;
 }
