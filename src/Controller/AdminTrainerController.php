@@ -16,13 +16,14 @@ class AdminTrainerController extends AbstractController
             header('Location: /admin/entraineur');
         }
     }
-    public function add(): string
+/*   public function add(): string
     {
         $errors = $trainer = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $trainer = array_map('trim', $_POST);
             $errors = $this->trainerValidate($trainer);
             if (empty($errors)) {
+                move_uploaded_file($_FILES['image']['tmp_name'],'/uploads/trainers'.uniqid().$_FILES['image']['tmp_name']);
                 $trainersManager  = new TrainerManager();
                 $trainersManager->insert($trainer);
                 header('Location:/admin/entraineur');
@@ -30,7 +31,6 @@ class AdminTrainerController extends AbstractController
         }
 
         return $this->twig->render('admin/adminAddTrainer.html.twig', ['errors' => $errors, 'trainer' => $trainer]);
-    }
 
     private function trainerValidate(array $trainer): array
     {
@@ -51,6 +51,8 @@ class AdminTrainerController extends AbstractController
         }
         if (empty($trainer['phoneNumber'])) {
             $errors[] = 'Le téléphone est obligatoire';
+        } elseif (!preg_match("#[0][6][- \.?]?([0-9][0-9][- \.?]?){4}$#",$trainer['phoneNumber'])){
+            $errors[] = 'Le numéro de téléphone est invalide';
         }
         if (empty($trainer['email'])) {
             $errors[] = 'Le mail est obligatoire';
@@ -58,5 +60,5 @@ class AdminTrainerController extends AbstractController
             $errors[] = 'L\'adresse mail n\'est pas au bon format';
         }
         return $errors;
-    }
+    }*/
 }
