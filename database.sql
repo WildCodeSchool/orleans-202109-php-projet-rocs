@@ -107,7 +107,7 @@ INSERT INTO `trainer` VALUES (1,'Nathan','Chapelle','0617864520','entraineur@roc
 
 
 --
--- Table structure for table `activity`
+-- Table structure for table activity
 --
 
 DROP TABLE IF EXISTS `activity`;
