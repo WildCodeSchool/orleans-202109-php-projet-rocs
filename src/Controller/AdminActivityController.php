@@ -43,7 +43,7 @@ class AdminActivityController extends AbstractController
 
     public function modify(int $id): string
     {
-        $activityManager = new activityManager();
+        $activityManager = new ActivityManager();
         $activity = $activityManager->activityById($id);
         $trainerManager = new TrainerManager();
         $trainers = $trainerManager->selectAll('lastname');
@@ -109,14 +109,8 @@ class AdminActivityController extends AbstractController
             $errors['emptyWho'] = 'Le champ "Pour qui" ne peut être vide';
         }
 
-        foreach ($trainers as $trainer) {
-            $count = 0;
-            if ($data['trainer'] == $trainer['id']) {
-                $count++;
-            }
-            if ($count != 1 && $data['trainer'] != '') {
-                $errors['noTrainer'] = 'L\'entraineur sélectionné est introuvable';
-            }
+        if (!in_array($data['trainer'], array_column($trainers, 'id')) && $data['trainer'] != '') {
+            $errors['noTrainer'] = 'L\'entraîneur sélectionné est introuvable';
         }
         return $errors;
     }
