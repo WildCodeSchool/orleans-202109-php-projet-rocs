@@ -29,8 +29,12 @@
                     <td> {{ office.personnel }} </td>
                     <td class="text-center"><a class="btn btn-primary py-1 btnAddOffice"
                             href="/admin/office/editer?id= {{ office.id }}" role="button">Modifier</a></td>
-                    <td class="text-center"><a class="btn btn-primary py-1 btnAddOffice" href="#"
-                            role="button">Supprimer</a></td>
+                    <td class="text-center">
+                        <form action="/admin/office/supprimer" method="POST">
+                            <input type="hidden" name="id" value=" {{ office.id }} ">
+                            <button class="btn btn-primary btnAddOffice">Supprimer</button>
+                        </form>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
