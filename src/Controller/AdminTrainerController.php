@@ -6,6 +6,27 @@ use App\Model\TrainerManager;
 
 class AdminTrainerController extends AbstractController
 {
+
+    public function edit(int $id): string
+    {
+        $errors = $trainer = [];
+        $trainerManager = new TrainerManager();
+        $trainer = $trainerManager->selectOneById($id);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $trainer = array_map('trim', $_POST);
+            $errors = $this->trainerValidate($trainer);
+            $trainer['id'] = $id;
+            if (empty($errors)) {
+                $trainerManager->update($trainer);
+                header('Location: /admin/entraineur');
+            }
+        }
+
+        return $this->twig->render('admin/adminEditTrainer.html.twig', ['errors' => $errors, 'trainer' => $trainer]);
+    }
+
+
+
     public function add(): string
     {
         $errors = $trainer = [];
