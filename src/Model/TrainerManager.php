@@ -5,6 +5,16 @@ namespace App\Model;
 class TrainerManager extends AbstractManager
 {
     public const TABLE = 'trainer';
+
+    public function update(array $trainer): bool
+    {
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE .
+            " SET `firstname` = :firstname , `lastname` = :lastname ,
+            `phoneNumber` = :phoneNumber , `email` = :email ,`gender` = :gender WHERE id=:id");
+        $statement->bindValue('id', $trainer['id'], \PDO::PARAM_INT);
+        return $statement->execute();
+    }
+
     public function insert(array $trainer): void
     {
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`firstname`,`lastname`,`phoneNumber`,

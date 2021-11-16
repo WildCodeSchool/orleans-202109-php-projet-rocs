@@ -52,6 +52,18 @@ class AdminOfficeController extends AbstractController
         }
         return $this->twig->render('admin/adminOfficeEdit.html.twig', ['errors' => $errors, 'office' => $office]);
     }
+    /**
+     * Delete a spersonnel office
+     */
+    public function delete()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = trim($_POST['id']);
+            $officeManager = new OfficeManager();
+            $officeManager->delete((int)$id);
+            header('Location: /admin/office');
+        }
+    }
 
     private function officeValidate(array $office): array
     {
