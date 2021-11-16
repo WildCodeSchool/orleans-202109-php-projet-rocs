@@ -9,7 +9,7 @@ class AdminTrainerController extends AbstractController
     public function index(): string
     {
         $trainersManager = new TrainerManager();
-        $trainers = $trainersManager->selectAll();
+        $trainers = $trainersManager->selectAll('lastname');
 
         return $this->twig->render('admin/adminTrainer.html.twig', ['trainers' => $trainers]);
     }
