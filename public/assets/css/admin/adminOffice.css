@@ -1,12 +1,12 @@
-thead{
+thead {
     color: var(--light);
 }
 
-.line:nth-child(odd){
+.line:nth-child(odd) {
     color: var(--primary-color);
 }
 
-.btnAddOffice{
+.btnAddOffice {
     background-color: var(--secondary-color);
     border: none;
     color: var(--dark);
@@ -14,19 +14,19 @@ thead{
     justify-self: center;
 }
 
-.btnAddOffice:hover{
+.btnAddOffice:hover {
     background-color: var(--primary-color);
 }
 
-.btnAddOffice:active{
+.btnAddOffice:active {
     background-color: var(--primary-color);
 }
 
-.btnAddOffice:focus{
+.btnAddOffice:focus {
     background-color: var(--primary-color);
     box-shadow: none;
 }
 
-.divAddOffice{
+.divAddOffice {
     justify-content: center;
 }
