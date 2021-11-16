@@ -4,7 +4,6 @@
 <link rel="stylesheet" href="/assets/css/admin/adminActivities.css">
 {% endblock %}
 {% block content %}
-<!--TODO Extend adminLayout-->
 <div class="container">
     <div class="row">
         <h1 class="text-center my-5">Administration des activitées</h1>
@@ -31,6 +30,7 @@
                         href="/admin/activites/modifier?id={{ activity.id }}" role="button">Modifier</a></td>
                     <td class="text-center"><a class="btn btn-primary py-1 btnAddActivity" 
                         href="#" role="button">Supprimer</a></td>
+
                 </tr>
                 {% endfor %}
             </tbody>

@@ -1,12 +1,12 @@
-thead{
+thead {
     color: var(--light);
 }
 
-.line:nth-child(odd){
+.line:nth-child(odd) {
     color: var(--primary-color);
 }
 
-.btnAddActivity{
+.btnAddActivity {
     background-color: var(--secondary-color);
     border: none;
     color: var(--dark);
@@ -14,19 +14,19 @@ thead{
     justify-self: center;
 }
 
-.btnAddActivity:hover{
+.btnAddActivity:hover {
     background-color: var(--primary-color);
 }
 
-.btnAddActivity:active{
+.btnAddActivity:active {
     background-color: var(--primary-color);
 }
 
-.btnAddActivity:focus{
+.btnAddActivity:focus {
     background-color: var(--primary-color);
     box-shadow: none;
 }
 
-.divAddActivity{
+.divAddActivity {
     justify-content: center;
 }

@@ -18,7 +18,7 @@
         <label for="firstname" class="form-label">Prénom</label>
         <input type="text" class="form-control" id="firstname" value="{{ office.firstname }}" name="firstname">
     </div>
-    <button class="btn btn-primary btnAddActivity">Ajouter</button>
+    <button class="btn btn-primary btnAddActivity">{{ button_name|default('Ajouter') }}</button>
     </div>
     <div>
         <a class="text-dark" href="/admin/office/" role="button">Retour</a>

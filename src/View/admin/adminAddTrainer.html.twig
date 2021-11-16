@@ -1,0 +1,56 @@
+{% extends "adminLayout.html.twig" %}
+{% block stylesheet %}
+	{{ parent() }}
+	<link rel="stylesheet" href="/assets/css/admin/adminTrainers.css">
+{% endblock %}
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<h1 class="text-center my-5">Ajouter un entraîneur</h1>
+		</div>
+		{% if errors is not empty %}
+			<div class="alert alert-danger p-0 ps-4 col-6 offset-3">
+				{% for error in errors %}
+					<p class="p-0 m-0 fs-6">{{ error }}</p>
+				{% endfor %}
+			</div>
+		{% endif %}
+		<div class="row">
+			<form action="" method="POST" enctype="multipart/form-data" class="mb-5 mt-2">
+				<div class="row">
+					<div class="mb-3 col-3 offset-3">
+						<label for="lastname" class="form-label">Nom</label>
+						<input type="text" name="lastname" id="lastname" class="form-control" placeholder="Nom" value=" {{ trainer.lastname }} ">
+					</div>
+					<div class="mb-3 col-3 ">
+						<label for="firstname" class="form-label">Prénom</label>
+						<input type="text" name="firstname" id="firstname" class="form-control" placeholder="Prénoom" value=" {{ trainer.firstname }} ">
+					</div>
+				</div>
+				<div class="row">
+					<div class="mb-3 col-3 offset-3">
+						<label for="phoneNumber" class="form-label">Téléphone</label>
+						<input type="tel" name="phoneNumber" id="phoneNumber" class="form-control" placeholder="Téléphone" value=" {{ trainer.phoneNumber }} ">
+					</div>
+					<div class="mb-3 col-3 ">
+						<label for="email" class="form-label">E-mail</label>
+						<input type="mail" name="email" id="email" class="form-control" placeholder="E-mail" value=" {{ trainer.email }} ">
+					</div>
+				</div>
+				<div class="row">
+					<div class="mb-3 col-3 offset-3">
+						<label for="gender" class="form-label">Civilité</label>
+						<input type="list" name="gender" id="gender" class="form-control" placeholder="Civilité" value=" {{ trainer.gender }} ">
+					</div>
+				
+					<div class="mb-3 col-4 ">
+						<label for="image" class="form-label">Image</label>
+						<input type="file" name="image" id="image" class="form-control">
+					</div>
+					<div class="row">
+						<button type="submit" class="btn btn-primary btnAddTrainer offset-5 col-2 mt-2">Ajouter</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	{% endblock %}
