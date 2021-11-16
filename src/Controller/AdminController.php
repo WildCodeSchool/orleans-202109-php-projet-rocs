@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\AdminManager;
+use Exception;
 
 class AdminController extends AbstractController
 {
@@ -11,11 +12,16 @@ class AdminController extends AbstractController
         $adminManager = new AdminManager();
         $errors = [];
         $data = [];
+        $admin = [];
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $data = array_map('trim', $_POST);
             $errors = $this->validate($data);
-            if (empty($errors)) {
+            try {
                 $admin = $adminManager->selectOneAdmin($data['username']);
+            } catch (Exception $e) {
+                $errors['adminNotFound'] = $e->getMessage();
+            }
+            if (empty($errors)) {
                 if (
                     password_verify($data['password'], $admin['password'])
                     && $admin['username'] == $data['username']
