@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\OfficeManager;
+use Error;
 
 class AdminOfficeController extends AbstractController
 {
@@ -22,11 +23,26 @@ class AdminOfficeController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $office = array_map('trim', $_POST);
             $errors = $this->officeValidate($office);
-
+            if (is_uploaded_file($_FILES['image']['tmp_name'])) {
+                $maxfileSize = '2000000';
+                if ($_FILES['image']['size'] > $maxfileSize) {
+                    $errors[] = 'le fichier doit faire moin de' . $maxfileSize / 1000000 . 'M';
+                }
+                $authorizeTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+                $fileType = mime_content_type($_FILES['image']['tmp_name']);
+                if (!in_array($fileType, $authorizeTypes)) {
+                    $errors[] = 'le type mine doit être parmi' . implode(', ', $authorizeTypes);
+                }
+            } else {
+                $errors[] = 'Erreur d\'upload';
+            }
             if (empty($errors)) {
+                $fileName = uniqid() . '_' . $_FILES['image']['name'];
+                move_uploaded_file($_FILES['image']['tmp_name'], 'uploads/' . $fileName);
+                $office['image'] = $fileName;
                 $officeManager = new OfficeManager();
                 $officeManager->insert($office);
-                header('Location:/admin/office/ajout');
+                header('Location:/admin/office');
             }
         }
         return $this->twig->render('admin/adminOfficeAdd.html.twig', ['errors' => $errors, 'office' => $office]);
@@ -37,10 +53,8 @@ class AdminOfficeController extends AbstractController
     public function edit(int $id): string
     {
         $errors = $office = [];
-
         $officeManager = new OfficeManager();
         $office = $officeManager->selectOneById($id);
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $office = array_map('trim', $_POST);
             $office['id'] = $id;
@@ -60,6 +74,10 @@ class AdminOfficeController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = trim($_POST['id']);
             $officeManager = new OfficeManager();
+            $office = $officeManager->selectOneById((int)$id);
+            if (file_exists('uploads/' . $office['image'])) {
+                unlink('uploads/' . $office['image']);
+            }
             $officeManager->delete((int)$id);
             header('Location: /admin/office');
         }
