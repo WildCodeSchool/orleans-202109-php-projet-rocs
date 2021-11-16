@@ -24,7 +24,7 @@ class AdminOfficeController extends AbstractController
             $office = array_map('trim', $_POST);
             $errors = $this->officeValidate($office);
             if (is_uploaded_file($_FILES['image']['tmp_name'])) {
-                $maxfileSize = '2000000';
+                $maxfileSize = '1300000';
                 if ($_FILES['image']['size'] > $maxfileSize) {
                     $errors[] = 'le fichier doit faire moin de' . $maxfileSize / 1000000 . 'M';
                 }
