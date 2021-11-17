@@ -9,6 +9,9 @@ class AdminTrainerController extends AbstractController
 
     public function index(): string
     {
+        if (empty($_SESSION)) {
+            header('Location: /admin/erreur');
+        }
         $trainersManager = new TrainerManager();
         $trainers = $trainersManager->selectAll('lastname');
 
