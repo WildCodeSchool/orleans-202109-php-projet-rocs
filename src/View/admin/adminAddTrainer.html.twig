@@ -1,13 +1,13 @@
 {% extends "adminLayout.html.twig" %}
 {% block stylesheet %}
-{{ parent() }}
-<link rel="stylesheet" href="/assets/css/admin/adminTrainers.css">
+	{{ parent() }}
+	<link rel="stylesheet" href="/assets/css/admin/adminTrainers.css">
 {% endblock %}
 {% block content %}
-<div class="container">
-<div class="row">
-<h1 class="text-center my-5">Ajouter un entraîneur</h1>
-</div>
-{% include 'admin/adminFormTrainer.html.twig' with { 'button_name':'Ajouter' }%}
-</main>
+	<div class="container">
+		<div class="row">
+			<h1 class="text-center my-5">Ajouter un entraîneur</h1>
+		</div>
+		{% include 'admin/adminFormTrainer.html.twig'%}
+	</main>
 {% endblock %}
