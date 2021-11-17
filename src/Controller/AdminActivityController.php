@@ -23,6 +23,8 @@ class AdminActivityController extends AbstractController
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $activityManager = new ActivityManager();
+            $activity = $activityManager->activityById((int)$_POST['id']);
+            unlink('uploads/activity/' . $activity['activity_image']);
             $activityManager->delete((int)$_POST['id']);
             header('Location: /admin/activites');
         }
