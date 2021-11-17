@@ -6,8 +6,9 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <h1 class="text-center my-5">Créer une Activité</h1>
+        <h1 class="text-center my-5">Modifier une Activité</h1>
     </div>
-    {% include "Include/_adminActivityForm.html.twig" %}
+
+    {% include "Include/_adminActivityForm.html.twig" with { 'button_name' : 'Modifier' } %}
 </div>
 {% endblock %}

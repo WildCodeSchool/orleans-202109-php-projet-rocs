@@ -4,6 +4,12 @@
 -- ------------------------------------------------------
 -- Server version	8.0.26
 
+
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -44,6 +50,7 @@ CREATE TABLE `activity` (
 /*!40000 ALTER TABLE `activity` DISABLE KEYS */;
 INSERT INTO `activity` VALUES (2,'Course à pied','La course à pied est, avec la marche, l\' un des deux modes de locomotion bip è des de l \'être humain. Caractérisée par une phase de suspension durant laquelle aucun des deux pieds ne touche le sol, elle permet un déplacement plus économe en énergie que la marche pour des vitesses allant d\' environ 6 km / h à plus de 40 km / h.\',\' 19h à 20h30 \',\' Mardi - Jeudi \',\' Pour les plus petits pleins d \'énergie et les plus grands compétiteurs','10h-13h','Mardi - Mercredi','tout le monde',1,'run.jpg'),(3,'Artistique','Pratique  éducative,  de  proximité  et  en  groupe  d\' activit é s physiques diversifié es elle sert d \'accompagnement  pour  entretenir,  améliorer,  dynamiser  la  santé,  le  bien-être  et  la  qualité  perçue de la vie  Méthode douce encore peu connue, elle allie  tonification, étirements et relâchement musculaire pour une  sensation immédiate de bien-être. ','10h - 13h','Lundi - Mardi','Martine FERREIRA',NULL,'art.jpg');
 /*!40000 ALTER TABLE `activity` ENABLE KEYS */;
+
 
 --
 -- Table structure for table `admin`
