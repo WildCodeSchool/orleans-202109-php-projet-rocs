@@ -9,7 +9,7 @@ class AdminTrainerController extends AbstractController
 
     public function index(): string
     {
-        if (empty($_SESSION)) {
+        if (!$_SESSION['username']) {
             header('Location: /admin/erreur');
         }
         $trainersManager = new TrainerManager();
@@ -117,12 +117,11 @@ class AdminTrainerController extends AbstractController
             $errors[] = 'Le champ prénom ne peut être plus long que ' . $maxfirstnameLength;
         }
 
-        $regexPhone =
-        '#^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$#';
+        $maxphonelenght = 10 ;
 
         if (empty($trainer['phoneNumber'])) {
             $errors[] = 'Le téléphone est obligatoire';
-        } elseif (!preg_match($regexPhone, $trainer['phoneNumber'])) {
+        } elseif (strlen($trainer['phoneNumber']) > $maxphonelenght) {
             $errors[] = 'Le numéro de téléphone est invalide';
         }
         if (empty($trainer['email'])) {
