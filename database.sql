@@ -30,7 +30,7 @@ CREATE TABLE `activity` (
   `days` varchar(60) NOT NULL,
   `who` text NOT NULL,
   `trainer_id` int DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
+  `image` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `trainer_id` (`trainer_id`),
   CONSTRAINT `activity_ibfk_1` FOREIGN KEY (`trainer_id`) REFERENCES `trainer` (`id`)
@@ -80,7 +80,7 @@ CREATE TABLE `office` (
   `id` int NOT NULL AUTO_INCREMENT COMMENT 'primary key',
   `firstname` varchar(60) DEFAULT NULL,
   `lastname` varchar(60) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
+  `image` varchar(255) NOT NULL,
   `role` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
