@@ -24,14 +24,14 @@ class AdminOfficeController extends AbstractController
             $office = array_map('trim', $_POST);
             $errors = $this->officeValidate($office);
             if (is_uploaded_file($_FILES['image']['tmp_name'])) {
-                $maxfileSize = '1300000';
+                $maxfileSize = '1500000';
                 if ($_FILES['image']['size'] > $maxfileSize) {
-                    $errors[] = 'le fichier doit faire moin de' . $maxfileSize / 1000000 . 'M';
+                    $errors[] = 'le fichier doit faire moins de ' . $maxfileSize / 1000000 . 'M';
                 }
                 $authorizeTypes = ['image/jpeg', 'image/png', 'image/jpg'];
                 $fileType = mime_content_type($_FILES['image']['tmp_name']);
                 if (!in_array($fileType, $authorizeTypes)) {
-                    $errors[] = 'le type mine doit être parmi' . implode(', ', $authorizeTypes);
+                    $errors[] = 'le type mine doit être parmi ' . implode(', ', $authorizeTypes);
                 }
             } else {
                 $errors[] = 'Erreur d\'upload';
