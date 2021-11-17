@@ -1,0 +1,19 @@
+.btnAdminOffice{
+    background-color: var(--secondary-color);
+    border: none;
+    color: var(--dark);
+    justify-self: center;
+}
+
+.btnAdminOffice:hover{
+    background-color: var(--primary-color);
+}
+
+.btnAdminOffice:active{
+    background-color: var(--primary-color);
+}
+
+.btnAdminOffice:focus{
+    background-color: var(--primary-color);
+    box-shadow: none;
+}

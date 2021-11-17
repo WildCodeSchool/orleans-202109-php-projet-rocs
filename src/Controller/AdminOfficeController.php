@@ -9,7 +9,7 @@ class AdminOfficeController extends AbstractController
 {
     public function index(): string
     {
-        if (!$_SESSION['username']) {
+        if (!isset($_SESSION['username'])) {
             header('Location: /admin/erreur');
         }
         $officeManager = new OfficeManager();

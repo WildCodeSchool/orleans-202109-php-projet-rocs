@@ -10,8 +10,8 @@ class ActivityManager extends AbstractManager
 
     public function activityById(int $id): array
     {
-        $query = 'SELECT *, t.image AS trainer_image, t.id AS trainer FROM ' . static::TABLE .
-            ' AS a LEFT JOIN trainer AS t ON t.id = a.trainer_id WHERE a.id = :id';
+        $query = 'SELECT *, t.image AS trainer_image, t.id AS trainer, a.image AS activity_image FROM '
+            . static::TABLE . ' AS a LEFT JOIN trainer AS t ON t.id = a.trainer_id WHERE a.id = :id';
         $statement = $this->pdo->prepare($query);
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
@@ -28,8 +28,8 @@ class ActivityManager extends AbstractManager
     public function addActivity(array $newActivity): void
     {
 
-        $query = "INSERT INTO activity (`name`,`description`,`schedule`,`days`,`who`,`trainer_id`) 
-            VALUES (:name,:description,:schedule,:days,:who,:trainer)";
+        $query = "INSERT INTO activity (`name`,`description`,`schedule`,`days`,`who`,`trainer_id`,image) 
+            VALUES (:name,:description,:schedule,:days,:who,:trainer,:image)";
         $statement = $this->pdo->prepare($query);
 
         $statement->bindValue('name', $newActivity['name'], \PDO::PARAM_STR);
@@ -37,6 +37,7 @@ class ActivityManager extends AbstractManager
         $statement->bindValue('schedule', $newActivity['schedule'], \PDO::PARAM_STR);
         $statement->bindValue('days', $newActivity['days'], \PDO::PARAM_STR);
         $statement->bindValue('who', $newActivity['who'], \PDO::PARAM_STR);
+        $statement->bindValue('image', $newActivity['file'], \PDO::PARAM_STR);
         if ($newActivity['trainer'] != "") {
             $statement->bindValue('trainer', $newActivity['trainer'], \PDO::PARAM_INT);
         } else {
@@ -50,7 +51,7 @@ class ActivityManager extends AbstractManager
     {
         $query = "UPDATE activity 
             SET name = :name, description = :description, schedule = :schedule, 
-            days = :days, who = :who, trainer_id = :trainer WHERE id = :id";
+            days = :days, who = :who, trainer_id = :trainer, image = :image WHERE id = :id";
         $statement = $this->pdo->prepare($query);
 
         $statement->bindValue('name', $activity['name'], \PDO::PARAM_STR);
@@ -59,6 +60,7 @@ class ActivityManager extends AbstractManager
         $statement->bindValue('days', $activity['days'], \PDO::PARAM_STR);
         $statement->bindValue('who', $activity['who'], \PDO::PARAM_STR);
         $statement->bindValue('id', $activity['id'], \PDO::PARAM_INT);
+        $statement->bindValue('image', $activity['file'], \PDO::PARAM_STR);
         if ($activity['trainer'] != '') {
             $statement->bindValue('trainer', $activity['trainer'], \PDO::PARAM_INT);
         } else {
