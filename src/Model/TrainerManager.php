@@ -12,18 +12,26 @@ class TrainerManager extends AbstractManager
             " SET `firstname` = :firstname , `lastname` = :lastname ,
             `phoneNumber` = :phoneNumber , `email` = :email ,`gender` = :gender WHERE id=:id");
         $statement->bindValue('id', $trainer['id'], \PDO::PARAM_INT);
+        $statement->bindValue('firstname', $trainer['firstname'], \PDO::PARAM_STR);
+        $statement->bindValue('lastname', $trainer['lastname'], \PDO::PARAM_STR);
+        $statement->bindValue('phoneNumber', $trainer['phoneNumber']);
+        $statement->bindValue('email', $trainer['email']);
+        $statement->bindValue('gender', $trainer['gender'], \PDO::PARAM_STR);
+
+
         return $statement->execute();
     }
 
     public function insert(array $trainer): void
     {
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`firstname`,`lastname`,`phoneNumber`,
-        `email`,`gender`) VALUES (:firstname,:lastname,:phoneNumber,:email,:gender)");
+`email`,`gender`,`image`) VALUES (:firstname,:lastname,:phoneNumber,:email,:gender,:image)");
         $statement->bindValue('firstname', $trainer['firstname'], \PDO::PARAM_STR);
         $statement->bindValue('lastname', $trainer['lastname'], \PDO::PARAM_STR);
         $statement->bindValue('phoneNumber', $trainer['phoneNumber']);
         $statement->bindValue('email', $trainer['email']);
         $statement->bindValue('gender', $trainer['gender'], \PDO::PARAM_STR);
+        $statement->bindValue('image', $trainer['image'], \PDO::PARAM_STR);
         $statement->execute();
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Model;
 
+use Exception;
+
 class AdminManager extends AbstractManager
 {
     public const TABLE = 'admin';
@@ -24,7 +26,13 @@ class AdminManager extends AbstractManager
         $query = "SELECT * FROM admin WHERE username = :username";
         $statement = $this->pdo->prepare($query);
         $statement->bindValue('username', $username, \PDO::PARAM_STR);
+
         $statement->execute();
-        return $statement->fetch(\PDO::FETCH_ASSOC);
+
+        $result = $statement->fetch(\PDO::FETCH_ASSOC);
+        if (!$result) {
+            throw new Exception('Admin non trouvé');
+        }
+        return $result;
     }
 }

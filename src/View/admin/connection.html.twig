@@ -25,8 +25,19 @@
     <div class="col">
         <form action="" method="post" class="border border-success my-5 rounded p-5">
             <h1 class="offset-2">Connexion</h1>
+            {% if errors.adminNotFound %}
+            <div class="alert alert-danger p-0 mt-2 col-8 offset-2">
+                <p class="m-0 ms-3 fs-6">
+                    <svg class="bi flex-shrink-0 me-2 danger" role="img" aria-label="Danger:">
+                        <use xlink:href="#exclamation-triangle-fill" />
+                    </svg>
+                    {{ errors.adminNotFound }}
+                </p>
+            </div>
+            {% endif %}
             <div class="form-floating mb-3 col-8 offset-2">
-                <input type="text" class="form-control" id="username" name="username" placeholder="username" value="{{ data.username }}" >
+                <input type="text" class="form-control" id="username" name="username" placeholder="username"
+                    value="{{ data.username }}">
                 <label for="username">Utilisateur</label>
                 {% if errors.emptyUsername %}
                 <div class="alert alert-danger p-0 mt-2">
@@ -84,5 +95,6 @@
             <button class="btn btn-success col-2 offset-5 mb-3">Connecter</button>
         </form>
     </div>
+
 </div>
 {% endblock %}
