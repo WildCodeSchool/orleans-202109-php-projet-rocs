@@ -28,8 +28,8 @@ class ActivityManager extends AbstractManager
     public function addActivity(array $newActivity): void
     {
 
-        $query = "INSERT INTO activity (`name`,`description`,`schedule`,`days`,`who`,`trainer_id`) 
-            VALUES (:name,:description,:schedule,:days,:who,:trainer)";
+        $query = "INSERT INTO activity (`name`,`description`,`schedule`,`days`,`who`,`trainer_id`,image) 
+            VALUES (:name,:description,:schedule,:days,:who,:trainer,:image)";
         $statement = $this->pdo->prepare($query);
 
         $statement->bindValue('name', $newActivity['name'], \PDO::PARAM_STR);
@@ -37,6 +37,7 @@ class ActivityManager extends AbstractManager
         $statement->bindValue('schedule', $newActivity['schedule'], \PDO::PARAM_STR);
         $statement->bindValue('days', $newActivity['days'], \PDO::PARAM_STR);
         $statement->bindValue('who', $newActivity['who'], \PDO::PARAM_STR);
+        $statement->bindValue('image', $newActivity['file'], \PDO::PARAM_STR);
         if ($newActivity['trainer'] != "") {
             $statement->bindValue('trainer', $newActivity['trainer'], \PDO::PARAM_INT);
         } else {
