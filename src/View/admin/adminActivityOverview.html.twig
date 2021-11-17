@@ -26,11 +26,16 @@
                 <tr class="align-middle">
                     <td> {{ activity.name }} </td>
                     <td> {{ activity.trainer ?? 'Pas d\'entraîneur' }} </td>
-                    <td class="text-center"><a class="btn btn-primary py-1 btnAddActivity" 
-                        href="activites/modifier?id={{ activity.id }}" role="button">Modifier</a></td>
-                    <td class="text-center"><a class="btn btn-primary py-1 btnAddActivity" 
-                        href="#" role="button">Supprimer</a></td>
-
+                    <td class="text-center">
+                    <a class="btn btn-primary py-1 btnAddActivity" 
+                        href="/activites/modifier?id={{ activity.id }}" role="button">Modifier</a>
+                    </td>
+                    <td class="text-center">
+                        <form action="activites/suppression" method="post">
+                            <input type="hidden" name="id" id="id" value=" {{ activity.id }} ">
+                            <button class="btn btn-primary py-1 btnAddActivity">Supprimer</button>
+                        </form>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

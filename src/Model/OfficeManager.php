@@ -14,10 +14,11 @@ class OfficeManager extends AbstractManager
     public function insert(array $office): void
     {
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
-            " (`role`,`lastname`, `firstname`) VALUES (:role, :lastname, :firstname)");
+            " (`role`,`lastname`, `firstname`, `image`) VALUES (:role, :lastname, :firstname, :image)");
         $statement->bindValue('role', $office['role'], \PDO::PARAM_STR);
         $statement->bindValue('lastname', $office['lastname'], \PDO::PARAM_STR);
         $statement->bindValue('firstname', $office['firstname'], \PDO::PARAM_STR);
+        $statement->bindValue('image', $office['image'], \PDO::PARAM_STR);
         $statement->execute();
     }
 

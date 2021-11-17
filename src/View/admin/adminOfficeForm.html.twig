@@ -5,7 +5,7 @@
     {% endfor %}
 </div>
 {% endif %}
-<form method="post" class="container">
+<form method="post" class="container" enctype="multipart/form-data">
     <div class="form-group mb-3">
         <label for="role" class="form-label">Role</label>
         <input type="text" class="form-control" id="role" value="{{ office.role }}" name="role">
@@ -17,8 +17,11 @@
     <div class="form-group mb-3">
         <label for="firstname" class="form-label">Prénom</label>
         <input type="text" class="form-control" id="firstname" value="{{ office.firstname }}" name="firstname">
-    </div>
-    <button class="btn btn-primary btnAddActivity">{{ button_name|default('Ajouter') }}</button>
+        <div class="form-group mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="file" class="form-control" id="image" name="image">
+        </div>
+        <button class="btn btn-primary btnAddActivity">{{ button_name|default('Ajouter') }}</button>
     </div>
     <div>
         <a class="text-dark" href="/admin/office/" role="button">Retour</a>
