@@ -4,9 +4,9 @@
 {% block content %}
 	<header>
 		<div class="header-rocs bg-cover text-white d-flex ">
-			<div class="container py-5 text-center bg-dark  bg-opacity-75 h-100 w-100">
+			<div class="container py-5 text-center bg-dark bg-opacity-75 h-100 w-100">
 				<h1 class=" h1-header mt-5 fw-bold">Rocs Roller</h1>
-				<h2 class="h2-header  mt-5 fw-bold ">Roller Olympique Club Stéoruellan</h2>
+				<h2 class="h2-header mt-5 fw-bold ">Roller Olympique Club Stéoruellan</h2>
 				<p>Artistique - Course - Ecole de patinage - Freestyle - Randonnée - Rink Hockey - Roller Hockey
 				</p>
 			</div>
@@ -17,29 +17,33 @@
 		<div class="row">
 			<div class="col mb-4">
 				<p>A l'occasion de la fête du Sport, la Mairie de Saint Jean de la Ruelle organisait en 1984, une randonnée très particulière puisque tous les participants chaussaient des patins à roulettes.
-															En 1986, la ville de Saint Jean de la Ruelle projette de relever un grand défi parcourir 1200 km en relais sur patins à roulettes et relier
-															Saint Jean de la Ruelle  à AMPOSTA, la ville jumelle Espagnole.
-															Le R.O.C.S. ou Roller Olympique Club Stéoruellan était né, vingt-huit jeunes participent à cette aventure et grâce à leur exploit, obtiennent une mention au livre des records.
-															Au fil des années, le Club s'agrandit et compte actuellement
-															5 disciplines : Artistique, Course, Roller Hockey, Rink Hockey, Randonnée ainsi qu'une école de Patinage.
-															Le R.O.C.S. est affilié à la Fédération Française de Roller Sports (FFRS).</p>
+					En 1986, la ville de Saint Jean de la Ruelle projette de relever un grand défi parcourir 1200 km en relais sur patins à roulettes et relier
+					Saint Jean de la Ruelle à AMPOSTA, la ville jumelle Espagnole.
+					Le R.O.C.S. ou Roller Olympique Club Stéoruellan était né, vingt-huit jeunes participent à cette aventure et grâce à leur exploit, obtiennent une mention au livre des records.
+					Au fil des années, le Club s'agrandit et compte actuellement
+					5 disciplines : Artistique, Course, Roller Hockey, Rink Hockey, Randonnée ainsi qu'une école de Patinage.
+					Le R.O.C.S. est affilié à la Fédération Française de Roller Sports (FFRS).</p>
 			</div>
 		</div>
-		<div class="card  card-activities  bg-light  w-80   my-5">
+		<div class="card card-activities bg-light w-80 my-5">
 			<div class="row g-0 ">
 				<div class="col-md-7 ">
-					<h2 class="featurette-heading my-3 mr-3 text-center">Nos activités</h2>
+					<h2 class="featurette-heading my-2 mr-3 text-center">Nos activités</h2>
 					<p class=" m-5 mb-0">Le ROCS roller propose des multi-activités en salle, de roller artistique et de roller loisir.
 						Un rendez-vous idéal pour apprendre les bases du roller ou se perfectionner pour les plus agiles. Sport complet regroupant agilité, vitesse, équilibre, qui renforce naturellement les cuisses, les fessiers, la ceinture abdominale et dorsale.
 					</p>
-					<a class="btn activity-btn mx-5 mb-3" href="activites">en savoir plus</a>
+					<a class="btn activity-btn mx-5 " href="activites">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewbox="0 0 16 16">
+							<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+						</svg>
+						en savoir plus</a>
 				</div>
-				<div class="col-md-5 mt-3 mb-3">
-					<div id="carouselExampleControls" class="carousel slide m-2" data-bs-ride="carousel">
+				<div class="col-md-5 mt-3 ">
+					<div id="carouselExampleControls" class="carousel slide m-3" data-bs-ride="carousel">
 						<div class="carousel-inner">
 							{% for activity in activities %}
 								<div class="carousel-item {{ loop.first?'active':''}} ">
-									<img src="uploads/{{ activity.image }} " class="d-block w-100">
+									<img class="img-fluid d-block w-100 " src="uploads/{{ activity.image }} ">
 								</div>
 							{% endfor %}
 						</div>
