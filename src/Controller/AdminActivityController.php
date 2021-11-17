@@ -38,7 +38,12 @@ class AdminActivityController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = array_map('trim', $_POST);
             $errors = $this->validate($data, $trainers);
+            $uploadDir = 'uploads/activity/';
+            $filename = uniqid() . '-' . $_FILES['file']['name'];
+            $uploadFile = $uploadDir . $filename;
             if (empty($errors)) {
+                $data['file'] = $filename;
+                move_uploaded_file($_FILES['file']['tmp_name'], $uploadFile);
                 $activityManager = new ActivityManager();
                 $activityManager->addActivity($data);
                 header('Location: /admin/activites');
@@ -124,6 +129,16 @@ class AdminActivityController extends AbstractController
 
         if (!in_array($data['trainer'], array_column($trainers, 'id')) && $data['trainer'] != '') {
             $errors['noTrainer'] = 'L\'entraîneur sélectionné est introuvable';
+        }
+        $authorizedExtensions = ['image/jpg', 'image/jpeg', 'image/png'];
+
+        if (!in_array($_FILES['file']['type'], $authorizedExtensions)) {
+            $errors['noExtensionFind'] = 'L\'extension de votre image doit être jpg, jpeg ou png';
+        }
+
+        $maxFileSize = 1900000;
+        if (file_exists($_FILES['file']['tmp_name']) && filesize($_FILES['file']['tmp_name']) > $maxFileSize) {
+            $errors['toBigFile'] = 'Le fichier est trop gros';
         }
         return $errors;
     }
