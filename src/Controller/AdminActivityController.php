@@ -23,7 +23,7 @@ class AdminActivityController extends AbstractController
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $activityManager = new ActivityManager();
-            $activityManager->delete((int)$_POST['activity_id']);
+            $activityManager->delete((int)$_POST['id']);
             header('Location: /admin/activites');
         }
     }
@@ -54,6 +54,32 @@ class AdminActivityController extends AbstractController
         );
     }
 
+    public function modify(int $id): string
+    {
+        $activityManager = new ActivityManager();
+        $activity = $activityManager->activityById($id);
+        $trainerManager = new TrainerManager();
+        $trainers = $trainerManager->selectAll('lastname');
+        $errors = [];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $activity = array_map('trim', $_POST);
+            $activity['id'] = $id;
+            $errors = $this->validate($activity, $trainers);
+            if (empty($errors)) {
+                $activityManager->modifyActivity($activity);
+                header('Location: /admin/activites');
+            }
+        }
+        return $this->twig->render(
+            'admin/adminEditActivity.html.twig',
+            [
+                'data' => $activity,
+                'trainers' => $trainers,
+                'errors' => $errors,
+            ]
+        );
+    }
+
     /**
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      * @SuppressWarnings(PHPMD.NPathComplexity)
@@ -61,12 +87,12 @@ class AdminActivityController extends AbstractController
     private function validate(array $data, array $trainers): array
     {
         $errors = [];
-        if (empty($data['activity'])) {
+        if (empty($data['name'])) {
             $errors['emptyActivity'] = 'Le champs "Activité" ne peut être vide';
         }
 
         $maxActivityLength = 100;
-        if (strlen($data['activity']) >= $maxActivityLength) {
+        if (strlen($data['name']) >= $maxActivityLength) {
             $errors['toLongActivity'] = 'Le champ "Activité" ne peut être plus long que ' . $maxActivityLength;
         }
 
@@ -96,10 +122,9 @@ class AdminActivityController extends AbstractController
             $errors['emptyWho'] = 'Le champ "Pour qui" ne peut être vide';
         }
 
-        if (in_array($data['trainer'], $trainers)) {
-            $errors['noTrainer'] = 'Aucun entraîneur n\'a été trouvé pour le champs sélectionner';
+        if (!in_array($data['trainer'], array_column($trainers, 'id')) && $data['trainer'] != '') {
+            $errors['noTrainer'] = 'L\'entraîneur sélectionné est introuvable';
         }
-
         return $errors;
     }
 }
