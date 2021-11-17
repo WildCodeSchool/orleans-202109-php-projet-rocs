@@ -1,0 +1,19 @@
+.btnFormTrainer {
+    background-color: var(--secondary-color);
+    border: none;
+    color: var(--dark);
+    justify-self: center;
+}
+
+.btnFormTrainer:hover {
+    background-color: var(--primary-color);
+}
+
+.btnFormTrainer:active {
+    background-color: var(--primary-color);
+}
+
+.btnFormTrainer:focus {
+    background-color: var(--primary-color);
+    box-shadow: none;
+}
