@@ -116,9 +116,13 @@ class AdminTrainerController extends AbstractController
         if (strlen($trainer['firstname']) > $maxfirstnameLength) {
             $errors[] = 'Le champ prénom ne peut être plus long que ' . $maxfirstnameLength;
         }
+
+        $regexPhone =
+        '#^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$#';
+
         if (empty($trainer['phoneNumber'])) {
             $errors[] = 'Le téléphone est obligatoire';
-        } elseif (!preg_match("#[0][6][- \.?]?([0-9][0-9][- \.?]?){4}$#", $trainer['phoneNumber'])) {
+        } elseif (!preg_match($regexPhone, $trainer['phoneNumber'])) {
             $errors[] = 'Le numéro de téléphone est invalide';
         }
         if (empty($trainer['email'])) {
