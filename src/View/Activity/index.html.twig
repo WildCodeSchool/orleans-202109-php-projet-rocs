@@ -14,7 +14,11 @@
 						<div class="card-body card-activites ">
 							<h2 class="card-title mb-2">{{ activity.name }}</h2>
 							<p class="card-text ">{{ activity.description }}</p>
-							<a class="btn activity-btn mb-2" href="activite?id={{ activity.id }}">en savoir plus</a>
+							<a class="btn activity-btn mb-2" href="activite?id={{ activity.id }}">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-home bi-plus-circle-fill" viewbox="0 0 16 16">
+									<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+								</svg>
+								en savoir plus</a>
 						</div>
 					</div>
 					<div class="col-md-4 p-5 d-flex align-items-center ">
