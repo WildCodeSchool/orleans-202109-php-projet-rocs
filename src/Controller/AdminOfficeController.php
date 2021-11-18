@@ -41,7 +41,7 @@ class AdminOfficeController extends AbstractController
             }
             if (empty($errors)) {
                 $fileName = uniqid() . '_' . $_FILES['image']['name'];
-                move_uploaded_file($_FILES['image']['tmp_name'], 'uploads/' . $fileName);
+                move_uploaded_file($_FILES['image']['tmp_name'], 'uploads/office/' . $fileName);
                 $office['image'] = $fileName;
                 $officeManager = new OfficeManager();
                 $officeManager->insert($office);
@@ -78,8 +78,8 @@ class AdminOfficeController extends AbstractController
             $id = trim($_POST['id']);
             $officeManager = new OfficeManager();
             $office = $officeManager->selectOneById((int)$id);
-            if (file_exists('uploads/' . $office['image'])) {
-                unlink('uploads/' . $office['image']);
+            if (file_exists('uploads/office/' . $office['image'])) {
+                unlink('uploads/office/' . $office['image']);
             }
             $officeManager->delete((int)$id);
             header('Location: /admin/office');
