@@ -7,8 +7,24 @@
 
 .activity-btn:hover {
     background-color: var(--primary-color);
+    color: white;
 }
 
 .card-activities:nth-child(even) .row {
     flex-direction: row-reverse;
+}
+
+
+.bi-home {
+    fill: black;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+}
+
+.bi-home:hover {
+    fill: white;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
 }

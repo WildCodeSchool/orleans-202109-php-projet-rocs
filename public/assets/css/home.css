@@ -9,6 +9,7 @@
     color: var(--secondary-color);
 }
 
+
 .h2-header {
     color: var(--light);
     font-size: 30px;
@@ -16,7 +17,7 @@
 
 .carousel-item {
     width: 500px;
-    height: 370px;
+    height: 350px;
 }
 
 .activity-btn {
@@ -28,4 +29,19 @@
 
 .activity-btn:hover {
     background-color: var(--primary-color);
+    color: white;
+}
+
+.bi-home {
+    fill: black;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+}
+
+.bi-home:hover {
+    fill: white;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
 }

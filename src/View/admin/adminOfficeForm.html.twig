@@ -2,44 +2,52 @@
 <link rel="stylesheet" href="/assets/css/admin/adminOfficeForm.css">
 {% endblock %}
 {% if errors is not empty %}
-<div class="alert alert-danger">
-    {% for error in errors %}
-    <div>{{error}}</div>
-    {% endfor %}
+<div class="row">
+	{% for error in errors %}
+	<div class="alert alert-danger p-0 ps-4 col-6 offset-3">
+		<p class="p-0 m-0 fs-6">{{ error }}</p>
+	</div>
+	{% endfor %}
 </div>
 {% endif %}
 
 <div class="row">
-    <form method="post" class="mb-5 mt-2" enctype="multipart/form-data">
-        <div class="row">
-            <div class="mb-3 col-6 offset-3 p-0">
-                <label for="role" class="form-label">Role</label>
-                <input type="text" class="form-control" id="role" value="{{ office.role }}" name="role">
-            </div>
-          </div>
-        <div class="row">
-            <div class="mb-3 col-6 offset-3 p-0">
-                <label for="lastname" class="form-label">Nom</label>
-                <input type="text" class="form-control" id="lastname" value="{{ office.lastname }}" name="lastname">
-            </div>
-        </div>
-        <div class="row">
-            <div class="mb-3 col-6 offset-3 p-0">
-                <label for="firstname" class="form-label">Prénom</label>
-                <input type="text" class="form-control" id="firstname" value="{{ office.firstname }}" name="firstname">
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group mb-3 col-6 offset-3 p-0">
-                <label for="image" class="form-label">Image</label>
-                <input type="file" class="form-control" id="image" name="image">
-            </div>
-        </div>
-        <div class="row">
-            <button class="btnAdminOffice btn btn-primary offset-5 col-2 mt-2">{{ button_name|default('Ajouter')
-                }}</button>
-            <a class="btn btn-outline-dark offset-1 col-1 mt-2" href="/admin/office/" role="button">Retour</a>
-        </div>
+	<form method="post" class="mb-5 mt-2" enctype="multipart/form-data">
+		<div class="row">
+			<div class="mb-3 col-6 offset-3 p-0">
+				<label for="role" class="form-label">Role</label>
+				<input type="text" class="form-control" id="role" value="{{ office.role }}" name="role">
+			</div>
+		</div>
+		<div class="row">
+			<div class="mb-3 col-6 offset-3 p-0">
+				<label for="lastname" class="form-label">Nom</label>
+				<input type="text" class="form-control" id="lastname" value="{{ office.lastname }}" name="lastname">
+			</div>
+		</div>
+		<div class="row">
+			<div class="mb-3 col-6 offset-3 p-0">
+				<label for="firstname" class="form-label">Prénom</label>
+				<input type="text" class="form-control" id="firstname" value="{{ office.firstname }}" name="firstname">
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group mb-3 col-6 offset-3 p-0">
+				<label for="image" class="form-label">Image</label>
+				<input type="file" class="form-control" id="image" name="image">
+			</div>
+		</div>
+		<div class="row">
+			<button class="btnAdminOffice btn btn-primary offset-5 col-2 mt-2">{{
+				button_name|default('Ajouter')}}</button>
+			<a class="btn btn-outline-dark offset-1 col-1 mt-2" href="/admin/office/" role="button">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+					class="bi bi-arrow-left-circle-fill" viewbox="0 0 16 16">
+					<path
+						d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+				</svg>
+				Retour</a>
+		</div>
 </div>
 </form>
 </div>

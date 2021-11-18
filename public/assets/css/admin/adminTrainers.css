@@ -26,3 +26,18 @@ thead {
     background-color: var(--primary-color);
     box-shadow: none;
 }
+
+.bi {
+    fill: black;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+
+}
+
+.bi:hover {
+    fill: white;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+}

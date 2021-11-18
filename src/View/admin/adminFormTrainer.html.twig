@@ -1,17 +1,18 @@
 {% block stylesheet %}
-	<link rel="stylesheet" href="/assets/css/admin/adminFormTrainer.css">
+<link rel="stylesheet" href="/assets/css/admin/adminFormTrainer.css">
 {% endblock %}
 {% if errors is not empty %}
-	<div class="alert alert-danger p-0 ps-4 col-6 offset-3">
-		{% for error in errors %}
-			<p class="p-0 m-0 fs-6">{{ error }}</p>
-		{% endfor %}
-	</div>
-{% endif %}
 <div class="row">
+	{% for error in errors %}
+	<div class="alert alert-danger p-0 ps-4 col-6 offset-3">
+		<p class="p-0 m-0 fs-6">{{ error }}</p>
+	</div>
+	{% endfor %}
+</div>
+{% endif %}
 
+<div class="row">
 	<form method="post" enctype="multipart/form-data" class="container mb-5 mt-2">
-
 		<div class="row">
 			<div class="mb-3 col-6 offset-3 p-0">
 				<label for="Civilité" class="form-label">Civilité</label>
@@ -24,44 +25,52 @@
 					<label class="form-check-label" for="Mr">Mr</label>
 				</div>
 			</div>
-
-
 			<div class="row">
 				<div class="mb-3 col-6 offset-3 p-0">
 					<label for="lastname" class="form-label">Nom</label>
-					<input type="text" name="lastname" id="lastname" class="form-control" placeholder="Nom" value=" {{ trainer.lastname }} ">
+					<input type="text" name="lastname" id="lastname" class="form-control" placeholder="Nom"
+						value=" {{ trainer.lastname }} ">
 				</div>
 			</div>
 			<div class="row">
 				<div class="mb-3 col-6 offset-3 p-0">
 					<label for="firstname" class="form-label">Prénom</label>
-					<input type="text" name="firstname" id="firstname" class="form-control" placeholder="Prénom" value=" {{ trainer.firstname }} ">
+					<input type="text" name="firstname" id="firstname" class="form-control" placeholder="Prénom"
+						value=" {{ trainer.firstname }} ">
 				</div>
 			</div>
 			<div class="row">
 				<div class="mb-3 col-6 offset-3 p-0">
 					<label for="phoneNumber" class="form-label">Téléphone</label>
-					<input type="tel" name="phoneNumber" id="phoneNumber" class="form-control" placeholder="Téléphone" value=" {{ trainer.phoneNumber }} ">
+					<input type="tel" name="phoneNumber" id="phoneNumber" class="form-control" placeholder="Téléphone"
+						value=" {{ trainer.phoneNumber }} ">
 				</div>
 			</div>
 			<div class="row">
 				<div class="mb-3 col-6 offset-3 p-0">
 					<label for="email" class="form-label">E-mail</label>
-					<input type="mail" name="email" id="email" class="form-control" placeholder="E-mail" value=" {{ trainer.email }} ">
+					<input type="mail" name="email" id="email" class="form-control" placeholder="E-mail"
+						value=" {{ trainer.email }} ">
 				</div>
 			</div>
 			<div class="row">
 				<div class="mb-3 col-6 offset-3 p-0">
 					<label for="image">Image</label>
-					<input type="file" name="image" id="image" class="form-control"/>
+					<input type="file" name="image" id="image" class="form-control" />
 				</div>
 			</div>
 			<div class="row">
-
-				<button class="btnFormTrainer btn btn-primary offset-5 col-2 mt-2">{{ button_name|default('Ajouter') }}</button>
-				<a class="btn btn-outline-dark offset-1 col-1 mt-2" href="/admin/entraineur" role="button">Retour</a>
+				<button class="btnFormTrainer btn btn-primary offset-5 col-2 mt-2">
+					{{button_name|default('Ajouter') }}
+				</button>
+				<a class="btn btn-outline-dark offset-1 col-1 mt-2" href="/admin/entraineur" role="button">
+					<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-arrow-left-circle-fill" viewbox="0 0 16 16">
+						<path
+							d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+					</svg>
+					Retour
+				</a>
 			</div>
-
 		</div>
 	</form>
 </div>
