@@ -3,29 +3,45 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 30rem;
-}
-
-.h1-header {
+    }
+    
+    .h1-header {
     color: var(--secondary-color);
-}
-
-.h2-header {
+    }
+    
+    
+    .h2-header {
     color: var(--light);
     font-size: 30px;
-}
-
-.carousel-item {
+    }
+    
+    .carousel-item {
     width: 500px;
-    height: 370px;
-}
-
-.activity-btn {
+    height: 350px;
+    }
+    
+    .activity-btn {
     background-color: var(--secondary-color);
     border: none;
     color: var(--dark);
     float: right;
-}
-
-.activity-btn:hover {
+    }
+    
+    .activity-btn:hover {
     background-color: var(--primary-color);
-}
+    color:white;
+    }
+    
+    .bi-home {
+    fill: black;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+    }
+    
+    .bi-home:hover {
+    fill: white;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+    }
