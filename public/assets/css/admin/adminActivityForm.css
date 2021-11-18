@@ -1,19 +1,19 @@
-.btn{
+.btn-secondary{
     background-color: var(--secondary-color);
     border: none;
     color: var(--dark);
     justify-self: center;
 }
 
-.btn:hover{
+.btn-secondary:hover{
     background-color: var(--primary-color);
 }
 
-.btn:active{
+.btn-secondary:active{
     background-color: var(--primary-color);
 }
 
-.btn:focus{
+.btn-secondary:focus{
     background-color: var(--primary-color);
     box-shadow: none;
 }

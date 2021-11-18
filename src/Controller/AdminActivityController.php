@@ -9,7 +9,7 @@ class AdminActivityController extends AbstractController
 {
     public function index(): string
     {
-        if (empty($_SESSION)) {
+        if (!isset($_SESSION['username'])) {
             header('Location: /admin/erreur');
         }
         $activityManager = new ActivityManager();
@@ -32,6 +32,9 @@ class AdminActivityController extends AbstractController
 
     public function add(): string
     {
+        if (!isset($_SESSION['username'])) {
+            header('Location: /admin/erreur');
+        }
         $trainerManager = new TrainerManager();
         $trainers = $trainerManager->selectAll();
 
@@ -64,6 +67,9 @@ class AdminActivityController extends AbstractController
 
     public function modify(int $id): string
     {
+        if (!isset($_SESSION['username'])) {
+            header('Location: /admin/erreur');
+        }
         $activityManager = new ActivityManager();
         $activity = $activityManager->activityById($id);
         $image = $activity['activity_image'];
