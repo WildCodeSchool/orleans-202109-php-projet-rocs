@@ -14,7 +14,10 @@ class AdminOfficeController extends AbstractController
         }
         $officeManager = new OfficeManager();
         $offices = $officeManager->adminSelectAll();
-        return $this->twig->render('admin/adminOfficeOverview.html.twig', ['offices' => $offices]);
+        return $this->twig->render(
+            'admin/adminOfficeOverview.html.twig',
+            ['offices' => $offices,'connected' => true]
+        );
     }
     /**
      * Add a new personnel
@@ -48,7 +51,14 @@ class AdminOfficeController extends AbstractController
                 header('Location:/admin/office');
             }
         }
-        return $this->twig->render('admin/adminOfficeAdd.html.twig', ['errors' => $errors, 'office' => $office]);
+        return $this->twig->render(
+            'admin/adminOfficeAdd.html.twig',
+            [
+                'errors' => $errors,
+                'office' => $office ,
+                'connected' => true
+            ]
+        );
     }
     /**
      * Edit a spersonnel office
@@ -67,7 +77,14 @@ class AdminOfficeController extends AbstractController
                 header('Location: /admin/office');
             }
         }
-        return $this->twig->render('admin/adminOfficeEdit.html.twig', ['errors' => $errors, 'office' => $office]);
+        return $this->twig->render(
+            'admin/adminOfficeEdit.html.twig',
+            [
+            'errors' => $errors,
+            'office' => $office,
+            'connected' => true
+            ]
+        );
     }
     /**
      * Delete a spersonnel office

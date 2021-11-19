@@ -1,4 +1,7 @@
 {% extends "adminLayout.html.twig" %}
+{% block title %}
+Erreur
+{% endblock %}
 {% block stylesheet %}
 {{ parent() }}
 <link rel="stylesheet" href="/assets/css/admin/connection.css">
@@ -16,7 +19,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <a href="/admin/connection" class="btn btn-success">Se connecter</a>
+                <a href="/admin/connexion" class="btn btn-success">Se connecter</a>
             </div>
         </div>
     </div>

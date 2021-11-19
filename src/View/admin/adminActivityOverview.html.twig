@@ -1,4 +1,7 @@
 {% extends "adminLayout.html.twig" %}
+{% block title %}
+{{ parent() }} - Activité
+{% endblock %}
 {% block stylesheet %}
 {{ parent() }}
 <link rel="stylesheet" href="/assets/css/admin/adminActivities.css">
@@ -6,7 +9,7 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <h1 class="text-center my-5">Administration des activitées</h1>
+        <h1 class="text-center my-5">Administration des activités</h1>
     </div>
     <div class="row justify-content-center">
         <a class="btn btn-primary btnAddActivity" href="/admin/activites/ajouter" role="button"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">

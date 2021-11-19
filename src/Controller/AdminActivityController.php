@@ -16,7 +16,10 @@ class AdminActivityController extends AbstractController
 
         $activities = $activityManager->selectAllWithTrainer();
 
-        return $this->twig->render('admin/adminActivityOverview.html.twig', ['activities' => $activities]);
+        return $this->twig->render(
+            'admin/adminActivityOverview.html.twig',
+            ['activities' => $activities,'connected' => true]
+        );
     }
 
     public function delete()
@@ -24,7 +27,9 @@ class AdminActivityController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $activityManager = new ActivityManager();
             $activity = $activityManager->activityById((int)$_POST['id']);
-            unlink('uploads/activity/' . $activity['activity_image']);
+            if (file_exists('uploads/activity/' . $activity['activity_image'])) {
+                unlink('uploads/activity/' . $activity['activity_image']);
+            }
             $activityManager->delete((int)$_POST['id']);
             header('Location: /admin/activites');
         }
@@ -61,6 +66,7 @@ class AdminActivityController extends AbstractController
                 'trainers' => $trainers,
                 'errors' => $errors,
                 'data' => $data,
+                'connected' => true,
             ]
         );
     }
@@ -84,7 +90,9 @@ class AdminActivityController extends AbstractController
             $uploadDir = 'uploads/activity/';
             $uploadFile = $uploadDir . $activity['file'];
             if ($_FILES['file']['name'] !== '') {
-                unlink('uploads/activity/' . $activity['file']);
+                if (file_exists('uploads/activity/' . $activity['file'])) {
+                    unlink('uploads/activity/' . $activity['file']);
+                }
                 $filename = uniqid() . '-' . $_FILES['file']['name'];
                 $uploadFile = $uploadDir . $filename;
                 $errors = array_merge($errors, $this->uploadValidate());
@@ -104,6 +112,7 @@ class AdminActivityController extends AbstractController
                 'data' => $activity,
                 'trainers' => $trainers,
                 'errors' => $errors,
+                'connected' => true,
             ]
         );
     }
@@ -129,12 +138,12 @@ class AdminActivityController extends AbstractController
         }
 
         if (empty($data['schedule'])) {
-            $errors['emptySchedule'] = 'Le champ "Horraires" ne peut être vide';
+            $errors['emptySchedule'] = 'Le champ "Horaires" ne peut être vide';
         }
 
         $maxScheduleLength = 155;
         if (strlen($data['schedule']) >= $maxScheduleLength) {
-            $errors['toLongSchedule'] = 'Le champ "Horraires" ne peut être plus long que ' . $maxScheduleLength;
+            $errors['toLongSchedule'] = 'Le champ "Horaires" ne peut être plus long que ' . $maxScheduleLength;
         }
 
         if (empty($data['days'])) {
