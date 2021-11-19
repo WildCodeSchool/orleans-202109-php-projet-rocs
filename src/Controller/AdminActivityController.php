@@ -138,12 +138,12 @@ class AdminActivityController extends AbstractController
         }
 
         if (empty($data['schedule'])) {
-            $errors['emptySchedule'] = 'Le champ "Horraires" ne peut être vide';
+            $errors['emptySchedule'] = 'Le champ "Horaires" ne peut être vide';
         }
 
         $maxScheduleLength = 155;
         if (strlen($data['schedule']) >= $maxScheduleLength) {
-            $errors['toLongSchedule'] = 'Le champ "Horraires" ne peut être plus long que ' . $maxScheduleLength;
+            $errors['toLongSchedule'] = 'Le champ "Horaires" ne peut être plus long que ' . $maxScheduleLength;
         }
 
         if (empty($data['days'])) {
