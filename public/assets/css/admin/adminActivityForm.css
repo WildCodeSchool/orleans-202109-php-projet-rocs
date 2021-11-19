@@ -7,6 +7,7 @@
 
 .btn-secondary:hover{
     background-color: var(--primary-color);
+    fill: var(--light);
 }
 
 .btn-secondary:active{
@@ -16,4 +17,10 @@
 .btn-secondary:focus{
     background-color: var(--primary-color);
     box-shadow: none;
+}
+
+.bi{
+    fill: var(--dark);
+    width: 16px;
+    height: 16px;
 }

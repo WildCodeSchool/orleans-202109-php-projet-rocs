@@ -29,3 +29,7 @@ iframe {
 img.logo {
     height: 14rem;
 }
+
+span {
+    color: var(--light);
+}

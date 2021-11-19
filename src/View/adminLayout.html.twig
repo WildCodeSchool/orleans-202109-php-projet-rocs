@@ -1,4 +1,6 @@
-
+{% block title %}
+Admin
+{% endblock %}
 {% extends "layout.html.twig" %}
 {% block stylesheet %}
 <link rel="stylesheet" href="/assets/css/adminNavbar.css">
@@ -9,6 +11,6 @@
 {% block content %}{% endblock %}
 {% block footer %}
 <div class="col offset-10 mt-5">
-    <a href="/admin/deconnection" class="btn btn-danger">Déconnexion</a>
+    <a href="/admin/deconnexion" class="btn btn-danger">Déconnexion</a>
 </div>
 {% endblock %}

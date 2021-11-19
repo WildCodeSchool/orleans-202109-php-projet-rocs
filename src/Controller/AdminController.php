@@ -38,7 +38,8 @@ class AdminController extends AbstractController
             'admin/connection.html.twig',
             [
                 'errors' => $errors,
-                'data' => $data
+                'data' => $data,
+                'connected' => false,
             ]
         );
     }
@@ -51,7 +52,7 @@ class AdminController extends AbstractController
 
     public function error(): string
     {
-        return $this->twig->render('admin/adminError.html.twig');
+        return $this->twig->render('admin/adminError.html.twig', ['connected' => false]);
     }
 
     private function validate(array $data): array
