@@ -16,7 +16,10 @@ class AdminActivityController extends AbstractController
 
         $activities = $activityManager->selectAllWithTrainer();
 
-        return $this->twig->render('admin/adminActivityOverview.html.twig', ['activities' => $activities]);
+        return $this->twig->render(
+            'admin/adminActivityOverview.html.twig',
+            ['activities' => $activities,'connected' => true]
+        );
     }
 
     public function delete()
@@ -61,6 +64,7 @@ class AdminActivityController extends AbstractController
                 'trainers' => $trainers,
                 'errors' => $errors,
                 'data' => $data,
+                'connected' => true,
             ]
         );
     }
@@ -104,6 +108,7 @@ class AdminActivityController extends AbstractController
                 'data' => $activity,
                 'trainers' => $trainers,
                 'errors' => $errors,
+                'connected' => true,
             ]
         );
     }
