@@ -26,7 +26,7 @@ return [
     'admin/entraineur/ajouter' => ['AdminTrainerController', 'add',],
     'admin/entraineur' => ['AdminTrainerController', 'index'],
     'admin/connexion' => ['AdminController', 'adminConnection'],
-    'admin/deconnection' => ['AdminController', 'adminDeconnection'],
+    'admin/deconnexion' => ['AdminController', 'adminDeconnection'],
     'admin/erreur' => ['AdminController', 'error'],
     'admin/activites/suppression' => ['AdminActivityController','delete'],
     'admin/activites/ajouter' => ['AdminActivityController', 'add'],
