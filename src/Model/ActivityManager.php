@@ -69,4 +69,14 @@ class ActivityManager extends AbstractManager
 
         $statement->execute();
     }
+
+
+    public function selectActivityWithTrainer($id)
+    {
+        $query = 'SELECT * FROM ' . static::TABLE . ' WHERE trainer_id = :id';
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetch(\PDO::FETCH_ASSOC);
+    }
 }
