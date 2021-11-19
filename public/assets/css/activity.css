@@ -2,6 +2,9 @@ body {
     background-color: var(--light);
 }
 
+.card{
+    height: 300px;
+}
 .registration {
     background-color: var(--secondary-color);
     border: none;
