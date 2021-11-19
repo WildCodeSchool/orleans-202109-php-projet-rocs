@@ -24,7 +24,9 @@ class AdminActivityController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $activityManager = new ActivityManager();
             $activity = $activityManager->activityById((int)$_POST['id']);
-            unlink('uploads/activity/' . $activity['activity_image']);
+            if (file_exists('uploads/activity/' . $activity['activity_image'])) {
+                unlink('uploads/activity/' . $activity['activity_image']);
+            }
             $activityManager->delete((int)$_POST['id']);
             header('Location: /admin/activites');
         }
@@ -78,7 +80,9 @@ class AdminActivityController extends AbstractController
             $uploadDir = 'uploads/activity/';
             $uploadFile = $uploadDir . $activity['file'];
             if ($_FILES['file']['name'] !== '') {
-                unlink('uploads/activity/' . $activity['file']);
+                if (file_exists('uploads/activity/' . $activity['file'])) {
+                    unlink('uploads/activity/' . $activity['file']);
+                }
                 $filename = uniqid() . '-' . $_FILES['file']['name'];
                 $uploadFile = $uploadDir . $filename;
                 $errors = array_merge($errors, $this->uploadValidate());
