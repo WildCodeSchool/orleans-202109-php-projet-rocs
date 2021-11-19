@@ -16,7 +16,7 @@ class AdminTrainerController extends AbstractController
         $trainersManager = new TrainerManager();
         $trainers = $trainersManager->selectAll('lastname');
 
-        return $this->twig->render('admin/adminTrainer.html.twig', ['trainers' => $trainers]);
+        return $this->twig->render('admin/adminTrainer.html.twig', ['trainers' => $trainers, 'connected' => true]);
     }
 
     public function delete()
