@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\TrainerManager;
+use App\Model\ActivityManager;
 
 class AdminTrainerController extends AbstractController
 {
@@ -18,20 +19,25 @@ class AdminTrainerController extends AbstractController
         return $this->twig->render('admin/adminTrainer.html.twig', ['trainers' => $trainers]);
     }
 
-
-
-
     public function delete()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = trim($_POST['id']);
             $trainerManager = new TrainerManager();
+            $activityManager = new ActivityManager();
+            $activities = $activityManager->selectActivityWithTrainer($id);
             $trainer = $trainerManager->selectOneById((int)$id);
-            if (file_exists('uploads/trainers' . $trainer['image'])) {
-                unlink('uploads/trainers' . $trainer['image']);
+
+
+            if (!empty($activities)) {
+                header('Location:/admin/entraineur');
+            } else {
+                if (file_exists('uploads/trainers' . $trainer['image'])) {
+                    unlink('uploads/trainers' . $trainer['image']);
+                }
+                $trainerManager->delete((int)$id);
+                header('Location: /admin/entraineur');
             }
-            $trainerManager->delete((int)$id);
-            header('Location: /admin/entraineur');
         }
     }
     public function edit(int $id): string
@@ -117,7 +123,7 @@ class AdminTrainerController extends AbstractController
             $errors[] = 'Le champ prénom ne peut être plus long que ' . $maxFirstnameLength;
         }
 
-        $maxPhoneLenght = 10 ;
+        $maxPhoneLenght = 10;
 
         if (empty($trainer['phoneNumber'])) {
             $errors[] = 'Le téléphone est obligatoire';
