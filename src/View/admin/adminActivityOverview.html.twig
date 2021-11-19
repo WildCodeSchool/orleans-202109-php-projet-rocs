@@ -1,5 +1,7 @@
-{% block title %}{% endblock %}
 {% extends "adminLayout.html.twig" %}
+{% block title %}
+{{ parent() }} - Activité
+{% endblock %}
 {% block stylesheet %}
 {{ parent() }}
 <link rel="stylesheet" href="/assets/css/admin/adminActivities.css">

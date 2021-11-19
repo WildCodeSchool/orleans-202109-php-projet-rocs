@@ -1,4 +1,7 @@
 {% block stylesheet %}
+{% block title %}
+{{ parent() }} - Entraîneur
+{% endblock %}
 <link rel="stylesheet" href="/assets/css/admin/adminFormTrainer.css">
 {% endblock %}
 {% if errors is not empty %}

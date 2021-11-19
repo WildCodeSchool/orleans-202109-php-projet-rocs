@@ -25,7 +25,7 @@ return [
     'admin/entraineur/editer' => ['AdminTrainerController', 'edit', ['id']],
     'admin/entraineur/ajouter' => ['AdminTrainerController', 'add',],
     'admin/entraineur' => ['AdminTrainerController', 'index'],
-    'admin/connection' => ['AdminController', 'adminConnection'],
+    'admin/connexion' => ['AdminController', 'adminConnection'],
     'admin/deconnection' => ['AdminController', 'adminDeconnection'],
     'admin/erreur' => ['AdminController', 'error'],
     'admin/activites/suppression' => ['AdminActivityController','delete'],

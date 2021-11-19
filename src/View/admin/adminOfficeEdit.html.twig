@@ -1,5 +1,8 @@
-{% extends "adminLayout.html.twig" %}
 {% block stylesheet %}
+{% extends "adminLayout.html.twig" %}
+{% block title %}
+{{ parent() }} - Bureau
+{% endblock %}
 {{ parent() }}
 <link rel="stylesheet" href="/assets/css/admin/adminActivities.css">
 {% endblock %}
